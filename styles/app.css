@@ -66,6 +66,11 @@
   .genui__chip:hover:not(:disabled) { @apply border-accent text-accent; }
   .genui__chip:disabled { @apply opacity-40 cursor-not-allowed; }
 
+  .genui__error {
+    @apply font-mono text-[0.82rem] text-down border border-down/30 rounded-md px-4 py-3 mb-4;
+    background: rgba(229, 112, 90, 0.06);
+  }
+
   .genui__stage {
     @apply min-h-[120px] border-t border-dashed border-line-bright pt-8;
   }

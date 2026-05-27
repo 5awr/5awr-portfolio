@@ -26,7 +26,7 @@ const SUGGESTIONS = [
 ];
 
 function GenUIDemoInner() {
-  const { messages, isRunning, processMessage } = useThread();
+  const { messages, isRunning, processMessage, threadError } = useThread();
   const [prompt, setPrompt] = useState("");
 
   const lastMsg = [...messages].reverse().find((m) => m.role === "assistant");
@@ -85,6 +85,9 @@ function GenUIDemoInner() {
         ))}
       </div>
 
+      {threadError && (
+        <div className="genui__error">{threadError.message}</div>
+      )}
       <div className="genui__stage" aria-live="polite">
         {isRunning && !response ? (
           <div className="genui__skeleton">

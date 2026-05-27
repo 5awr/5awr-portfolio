@@ -49,12 +49,24 @@ export async function POST(req: Request) {
   const { messages } = await req.json();
   const systemPrompt = `${PORTFOLIO_FACTS}\n\n${portfolioLibraryNode.prompt()}`;
 
-  const response = await client.chat.completions.create({
-    model: MODEL,
-    messages: [{ role: "system", content: systemPrompt }, ...messages],
-    stream: true,
-    temperature: 0.4,
-  });
+  let response;
+  try {
+    response = await client.chat.completions.create({
+      model: MODEL,
+      messages: [{ role: "system", content: systemPrompt }, ...messages],
+      stream: true,
+      temperature: 0.4,
+    });
+  } catch (err: unknown) {
+    const status = (err as { status?: number })?.status ?? 500;
+    const message = status === 429
+      ? "リクエスト制限に達しました。しばらく待ってから試してください。"
+      : "エラーが発生しました。しばらく待ってから試してください。";
+    return new Response(JSON.stringify({ error: message }), {
+      status,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
 
   return new Response(response.toReadableStream(), {
     headers: {
