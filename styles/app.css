@@ -81,24 +81,23 @@
 
   /* ---- Tech Stack ---- */
   .tech__grid {
-    @apply list-none m-0 p-0 grid gap-4;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    @apply list-none m-0 p-0 grid gap-2;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   }
   .tech__item {
-    @apply flex flex-col gap-2 bg-bg-elevated border border-line rounded-md p-6;
-    transition: border-color var(--duration-base) var(--ease-spring);
+    @apply flex flex-col gap-1.5 bg-bg-elevated border border-line rounded-md p-4;
   }
-  .tech__item:hover   { @apply border-accent; }
-  .tech-icon          { @apply w-7 h-7 text-ink-soft shrink-0; }
+  .tech-icon          { @apply w-5 h-5 text-ink-soft shrink-0; }
   .tech__text-logo    {
-    @apply inline-flex items-center justify-center w-7 h-7 font-mono text-[0.7rem] font-bold text-accent border-[1.5px] border-accent-dim rounded-sm shrink-0;
+    @apply inline-flex items-center justify-center w-5 h-5 font-mono text-[0.6rem] font-bold text-accent border border-accent-dim rounded-sm shrink-0;
   }
-  .tech__name         { @apply font-mono text-[0.88rem] text-ink font-medium; }
-  .tech__note         { @apply font-body text-[0.8rem] text-ink-faint leading-snug; }
+  .tech__name         { @apply font-mono text-[0.8rem] text-ink font-medium; }
+  .tech__note         { @apply font-body text-[0.72rem] text-ink-faint leading-snug; }
 
   /* ---- Work ---- */
-  .work__grid { @apply grid grid-cols-3 gap-4; }
-  @media (max-width: 760px) { .work__grid { @apply grid-cols-1; } }
+  .work__grid { @apply grid grid-cols-2 gap-4; }
+  @media (min-width: 960px) { .work__grid { @apply grid-cols-4; } }
+  @media (max-width: 600px) { .work__grid { @apply grid-cols-1; } }
 
   /* ---- About ---- */
   .about__grid { @apply grid gap-8 items-start; grid-template-columns: 2fr 1fr; }

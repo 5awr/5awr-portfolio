@@ -116,21 +116,41 @@ const PROJECTS = [
     title: "xenoMateria",
     description: "B2B SaaS xenoBrainのデザインシステム(token/components)設計、運用フロー構築、実装。",
     tags: ["Design System", "Tokens", "TypeScript", "Vue", "Storybook", "Figma", "Claude Code"],
+    detail: {
+      description: "既存プロダクトで使用されているバラバラな仕様のコンポーネントをグルーピング。必要なコンポーネントを取捨選択し、新しいコンポーネントをデザイン。TailwindCSSを導入し、色、サイズ、タイポグラフィー、スペーシングなどのプリミティブトークンおよびセマンティックトークンを定義。",
+      role: "デザインシステムに関わる全て（設計から実装まで）",
+      achievement: "実装の自動化基盤の構築",
+    },
   },
   {
     title: "Design Efficiency",
     description: "xenoMateria導入によりデザイン工程の工数を1/5に削減。",
     tags: ["Design System", "Figma", "DX"],
+    detail: {
+      description: "旧来のFigma中心のフローからコード中心のプロトタイピングに移行することにより、アイデアを形にする時間を1/5に圧縮。また、プロトタイプはほとんどそのままフロントエンド実装に流用できるようになり、全体としては更なる効率化が実現された。",
+      role: "デザインシステムを活用したプロトタイピングフローの構築",
+      achievement: "プロトタイピングの時間を1/5に圧縮",
+    },
   },
   {
     title: "Vue 2 → Vue 3 Migration",
-    description: "xenoBrainプロダクトのVue 2→Vue 3移行。xenoMateriaコンポーネントの刷新も並行して実施。",
+    description: "B2B SaaSプロダクトのVue 2→Vue 3移行。",
     tags: ["Vue", "Migration", "TypeScript"],
+    detail: {
+      description: "Vue2からVue3への移行にあたり、既存コンポーネントを旧来のOptions APIからComposition APIへの書き換え。",
+      role: "コンポーネントの書き換え",
+      achievement: "Vue2からVue3への段階的移行の足がかり",
+    },
   },
   {
     title: "GenUI Pipeline",
     description: "このサイト。LLMがOpenUI Langをストリームし、デザインシステムが描画する。",
     tags: ["OpenUI", "Streaming", "TypeScript", "Next.js", "Gemini"],
+    detail: {
+      description: "このサイト自体。LLMがOpenUI Langをストリームし、デザインシステムのコンポーネントとしてリアルタイムに描画する。",
+      role: "設計・実装すべて",
+      achievement: "デザインシステム → AI実装のライブデモ",
+    },
   },
 ];
 
@@ -139,12 +159,9 @@ export function Work() {
     <section className="block" id="work">
       <span className="block__eyebrow">// selected work</span>
       <h2 className="block__title">実績</h2>
-      <p className="block__note">
-        ↓ ここで使っているカードは、上のGenUIデモがAI経由で生成するものと同一のコンポーネントです。
-      </p>
-      <div className="work__grid">
+<div className="work__grid">
         {PROJECTS.map((p) => (
-          <ProjectCard key={p.title} title={p.title} description={p.description} tags={p.tags} />
+          <ProjectCard key={p.title} title={p.title} description={p.description} tags={p.tags} detail={p.detail} />
         ))}
       </div>
     </section>
@@ -202,11 +219,10 @@ export function About() {
   return (
     <section className="block" id="about">
       <span className="block__eyebrow">// about</span>
-      <h2 className="block__title">プロフィール</h2>
+      <h2 className="block__title">5awr / SAWADA Ryunosuke</h2>
       <div className="about__grid">
         <p>
-          デザインとエンジニアリングの両輪によってデザインシステムの構築・運用、それを基盤にしたAIによるフロントエンド実装自動化を推進しています。
-          主言語はTypeScript。
+          デザインとエンジニアリングの両輪でデザインシステムを設計・構築し、AIを活用したフロントエンド実装の自動化を推進しています。
         </p>
         <div className="about__contact">
           <a href="https://github.com/5awr" className="about__link" target="_blank" rel="noreferrer">

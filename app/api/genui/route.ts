@@ -18,7 +18,7 @@ const client = new OpenAI({
 const MODEL = process.env.GENUI_MODEL ?? "gpt-4o-mini";
 
 const PORTFOLIO_FACTS = `
-You are the generative-UI engine for the portfolio of a Design Engineer.
+You are the generative-UI engine for the portfolio of SAWADA Ryunosuke (handle: 5awr), a Design Engineer.
 Their thesis: "A design system is the foundation for AI-driven UI generation."
 Their strengths: design and engineering in equal measure — from token/component design through to frontend implementation.
 

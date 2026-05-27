@@ -14,8 +14,8 @@ export default function Page() {
         <TechStack />
         <About />
         <footer className="footer">
-          <span>© {new Date().getFullYear()} — Design Engineer Portfolio</span>
-          <span className="footer__mono">design system · openui · typescript</span>
+          <span>© {new Date().getFullYear()} SAWADA Ryunosuke</span>
+          <span className="footer__mono">design system × ai · built with openui</span>
         </footer>
       </div>
     </main>

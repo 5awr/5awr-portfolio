@@ -52,21 +52,53 @@
 
   /* ---- ProjectCard ---- */
   .ds-project {
-    @apply bg-bg-elevated border border-line rounded-md p-6;
-    transition: border-color var(--duration-base) var(--ease-spring),
-                transform var(--duration-base) var(--ease-spring);
+    @apply border border-line rounded-md overflow-hidden;
+    transition: border-color var(--duration-base) var(--ease-spring);
   }
-  .ds-project:hover {
-    @apply border-accent-dim -translate-y-0.5;
+  .ds-project:hover { @apply border-accent; }
+
+  /* grid stack: both front and detail occupy the same cell
+     → card height = max(front, detail height) */
+  .ds-project__stack {
+    display: grid;
+    grid-template-areas: "card";
   }
-  .ds-project__title { @apply font-display font-semibold text-xl m-0 mb-2; }
-  .ds-project__desc  { @apply font-body text-ink-soft m-0 mb-4 text-sm; }
-  .ds-project__tags  { @apply flex flex-wrap gap-2; }
+  .ds-project__front,
+  .ds-project__detail {
+    grid-area: card;
+    @apply p-6;
+  }
+  .ds-project__front { @apply bg-bg-elevated; }
+  .ds-project__detail {
+    @apply bg-bg-panel;
+    transform: translateY(100%);
+    transition: transform 0.4s var(--ease-spring);
+  }
+  .ds-project:hover .ds-project__detail { transform: translateY(0); }
+  .ds-project__detail-desc { @apply font-body text-ink-soft text-sm m-0 mb-4; }
+
+  .ds-project__title  { @apply font-display font-semibold text-xl m-0 mb-2; }
+  .ds-project__desc   { @apply font-body text-ink-soft m-0 mb-4 text-sm; }
+  .ds-project__tags   { @apply flex flex-wrap gap-2; }
   .ds-tag {
     @apply font-mono text-[0.68rem] uppercase tracking-[0.08em] text-accent border border-accent-dim rounded-sm px-2 py-0.5;
   }
   .ds-project__link {
     @apply inline-block mt-4 font-mono text-[0.78rem] text-accent border-b border-accent-dim;
+  }
+  .ds-project__hint {
+    @apply block mt-4 font-mono text-[0.68rem] text-ink-ghost;
+  }
+  .ds-project__dl {
+    @apply m-0 mt-2 grid gap-y-2;
+    grid-template-columns: auto 1fr;
+    column-gap: 12px;
+  }
+  .ds-project__dl dt {
+    @apply font-mono text-[0.68rem] uppercase tracking-[0.08em] text-accent self-start pt-0.5;
+  }
+  .ds-project__dl dd {
+    @apply font-body text-sm text-ink-soft m-0;
   }
 
   /* ---- Timeline ---- */
