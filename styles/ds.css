@@ -24,12 +24,12 @@
 
   .ds-text--display {
     @apply font-display font-black leading-none;
-    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
     letter-spacing: -0.02em;
   }
   .ds-text--heading {
     @apply font-display font-semibold leading-tight;
-    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
     letter-spacing: -0.01em;
   }
   .ds-text--body  { @apply font-body text-ink-soft; }
@@ -79,16 +79,10 @@
   .ds-timeline__what { @apply font-body; }
   .ds-timeline__what strong { @apply text-ink font-semibold; }
 
-  /* ---- SkillBar ---- */
-  .ds-skill        { @apply flex flex-col gap-2; }
-  .ds-skill__row   { @apply flex justify-between items-baseline; }
-  .ds-skill__label { @apply font-mono text-[0.82rem] text-ink; }
-  .ds-skill__pct   { @apply font-mono text-xs text-ink-faint; }
-  .ds-skill__track { @apply h-1 bg-bg-inset rounded-full overflow-hidden; }
-  .ds-skill__fill  {
-    @apply h-full bg-accent rounded-full;
-    transition: width 1s var(--ease-spring);
-  }
+  /* ---- TagList ---- */
+  .ds-taglist        { @apply flex flex-col gap-2; }
+  .ds-taglist__label { @apply font-mono text-xs text-ink-faint uppercase tracking-widest; }
+  .ds-taglist__chips { @apply flex flex-wrap gap-2; }
 
   /* ---- Callout ---- */
   .ds-callout {

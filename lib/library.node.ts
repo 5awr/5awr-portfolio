@@ -64,12 +64,12 @@ const TimelineDef = defineComponent({
   component: null,
 });
 
-const SkillBarDef = defineComponent({
-  name: "SkillBar",
-  description: "A labelled proficiency bar (0-100). Use inside a Stack to list skills.",
+const TagListDef = defineComponent({
+  name: "TagList",
+  description: "A labelled list of technology or skill chips. Use to display a skill set or tech stack.",
   props: z.object({
-    label: z.string().describe("Skill name, e.g. 'TypeScript' or 'Design Systems'"),
-    level: z.number().describe("Proficiency 0-100"),
+    label: z.string().optional().describe("Section label, e.g. 'Design' or 'Engineering'"),
+    items: z.array(z.string()).describe("Technology or skill names, e.g. ['TypeScript', 'Figma', 'Vue']"),
   }),
   component: null,
 });
@@ -105,7 +105,7 @@ const StackDef = defineComponent({
         TextContentDef.ref,
         GridDef.ref,
         TimelineDef.ref,
-        SkillBarDef.ref,
+        TagListDef.ref,
         CalloutDef.ref,
         ProjectCardDef.ref,
       ])
@@ -123,7 +123,7 @@ export const portfolioLibraryNode = createLibrary({
     StatCardDef,
     ProjectCardDef,
     TimelineDef,
-    SkillBarDef,
+    TagListDef,
     CalloutDef,
   ],
 });

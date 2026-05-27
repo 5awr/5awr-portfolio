@@ -45,10 +45,7 @@ function GenUIDemoInner() {
     <section className="genui" id="genui">
       <div className="genui__head">
         <span className="genui__eyebrow">// live · generative ui</span>
-        <h2 className="genui__title">聞いてみてください</h2>
-        <p className="genui__lede">
-          このチャットはテキストで返しません。私のデザインシステムのコンポーネントでUIを組んで答えます。
-        </p>
+        <h2 className="genui__title">Hallo!</h2>
       </div>
 
       <form

@@ -83,16 +83,14 @@ export function Timeline({ items = [] }: { items?: TimelineItem[] }) {
   );
 }
 
-export function SkillBar({ label, level }: { label: string; level: number }) {
-  const pct = Math.max(0, Math.min(100, Math.round(level)));
+export function TagList({ label, items = [] }: { label?: string; items?: string[] }) {
   return (
-    <div className="ds-skill">
-      <div className="ds-skill__row">
-        <span className="ds-skill__label">{label}</span>
-        <span className="ds-skill__pct">{pct}%</span>
-      </div>
-      <div className="ds-skill__track">
-        <div className="ds-skill__fill" style={{ width: `${pct}%` }} />
+    <div className="ds-taglist">
+      {label && <div className="ds-taglist__label">{label}</div>}
+      <div className="ds-taglist__chips">
+        {items.map((item) => (
+          <span className="ds-tag" key={item}>{item}</span>
+        ))}
       </div>
     </div>
   );
