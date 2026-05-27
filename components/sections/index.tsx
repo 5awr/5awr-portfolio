@@ -215,6 +215,42 @@ export function TechStack() {
   );
 }
 
+const COLORS = [
+  "--color-bg", "--color-bg-elevated", "--color-bg-panel",
+  "--color-accent", "--color-accent-dim",
+  "--color-ink", "--color-ink-soft", "--color-ink-faint",
+  "--color-up", "--color-down",
+];
+
+const COMPONENTS = ["Stack", "Grid", "TextContent", "StatCard", "ProjectCard", "TagList", "Timeline", "Callout"];
+
+export function DesignSystemLink() {
+  return (
+    <section className="block" id="design-system-link">
+      <span className="block__eyebrow">// design system</span>
+      <a href="/design-system" className="ds-link-card">
+        <div className="ds-link-card__left">
+          <h2 className="ds-link-card__title">Design System</h2>
+          <p className="ds-link-card__desc">トークン・コンポーネント一覧</p>
+          <span className="ds-link-card__cta">View →</span>
+        </div>
+        <div className="ds-link-card__right">
+          <div className="ds-link-card__swatches">
+            {COLORS.map((v) => (
+              <div key={v} className="ds-link-card__swatch" style={{ background: `var(${v})` }} />
+            ))}
+          </div>
+          <div className="ds-link-card__chips">
+            {COMPONENTS.map((c) => (
+              <span key={c} className="ds-tag">{c}</span>
+            ))}
+          </div>
+        </div>
+      </a>
+    </section>
+  );
+}
+
 export function About() {
   return (
     <section className="block" id="about">

@@ -104,12 +104,91 @@
   @media (min-width: 960px) { .work__grid { @apply grid-cols-4; } }
   @media (max-width: 600px) { .work__grid { @apply grid-cols-1; } }
 
+  /* ---- Design System Link card ---- */
+  .ds-link-card {
+    @apply flex gap-8 bg-bg-elevated border border-line rounded-lg p-8 items-start;
+    transition: border-color var(--duration-base) var(--ease-spring);
+  }
+  .ds-link-card:hover { @apply border-accent; }
+  .ds-link-card__left  { @apply flex flex-col gap-2 shrink-0 min-w-[140px]; }
+  .ds-link-card__title {
+    @apply font-display font-black text-ink;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    letter-spacing: -0.01em;
+  }
+  .ds-link-card__desc  { @apply font-body text-sm text-ink-faint; }
+  .ds-link-card__cta   { @apply font-mono text-xs text-accent mt-2; }
+  .ds-link-card__right { @apply flex flex-col gap-4 flex-1; }
+  .ds-link-card__swatches {
+    @apply flex gap-1.5;
+  }
+  .ds-link-card__swatch {
+    @apply h-6 rounded-sm flex-1;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .ds-link-card__chips { @apply flex flex-wrap gap-2; }
+
+  @media (max-width: 600px) {
+    .ds-link-card { @apply flex-col; }
+  }
+
   /* ---- About ---- */
   .about__grid { @apply grid gap-8 items-start; grid-template-columns: 2fr 1fr; }
   .about__grid p    { @apply font-body text-ink-soft m-0; }
   .about__contact   { @apply flex flex-col gap-3; }
   .about__link      { @apply font-mono text-[0.88rem] text-accent border-b border-accent-dim w-fit; }
   @media (max-width: 760px) { .about__grid { @apply grid-cols-1; } }
+
+  /* ---- Design System Page ---- */
+  .ds-page {
+    @apply mx-auto px-6 py-16 pb-24;
+    max-width: var(--width-page);
+  }
+  .ds-page__header { @apply mb-16; }
+  .ds-page__back { @apply font-mono text-xs text-ink-faint mb-8 inline-block; }
+  .ds-page__back:hover { @apply text-accent; }
+  .ds-page__title {
+    @apply font-display font-black mt-4 mb-2;
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: -0.02em;
+  }
+  .ds-page__subtitle { @apply font-body text-ink-soft max-w-[52ch]; }
+
+  .ds-page__section {
+    @apply mb-20 pt-12 border-t border-line;
+  }
+  .ds-page__section-title {
+    @apply font-mono text-xs uppercase tracking-widest text-accent mb-8;
+  }
+  .ds-page__desc { @apply font-body text-sm text-ink-faint mb-6; }
+  .ds-page__group-label { @apply font-mono text-xs text-ink-ghost uppercase tracking-widest mb-3; }
+  .ds-page__swatch-group { @apply mb-8; }
+
+  .ds-page__swatches { @apply flex flex-wrap gap-3; }
+  .ds-page__swatch { @apply flex flex-col gap-1.5 w-32; }
+  .ds-page__swatch-color { @apply h-12 rounded-md border border-line; }
+
+  .ds-page__token-name { @apply font-mono text-[0.68rem] text-ink-soft; }
+  .ds-page__token-value { @apply font-mono text-[0.68rem] text-ink-faint; }
+  .ds-page__token-label { @apply font-body text-[0.75rem] text-ink-faint; }
+
+  .ds-page__type-samples { @apply flex flex-col gap-8; }
+  .ds-page__type-row { @apply flex flex-col gap-2; }
+  .ds-page__type-meta { @apply font-mono text-[0.68rem] text-ink-ghost; }
+
+  .ds-page__spacing-list { @apply flex flex-col gap-3; }
+  .ds-page__spacing-row { @apply flex items-center gap-4; }
+  .ds-page__spacing-bar { @apply h-2 bg-accent rounded-full; }
+
+  .ds-page__radius-list { @apply flex flex-wrap gap-6; }
+  .ds-page__radius-row { @apply flex flex-col gap-2 items-start; }
+  .ds-page__radius-box { @apply w-16 h-16 bg-bg-elevated border border-line-bright; }
+
+  .ds-page__preview { @apply mb-6; }
+  .ds-page__preview-label { @apply font-mono text-[0.68rem] text-ink-ghost uppercase tracking-widest mb-3; }
+  .ds-page__preview-canvas {
+    @apply p-6 bg-bg-elevated border border-line rounded-md;
+  }
 
   /* ---- Footer ---- */
   .footer {
