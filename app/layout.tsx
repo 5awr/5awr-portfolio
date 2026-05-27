@@ -5,9 +5,22 @@ import "@/styles/ds.css";
 import "@/styles/app.css";
 
 export const metadata: Metadata = {
-  title: "Design Engineer · Design Systems × AI Implementation",
-  description:
-    "デザインシステムを基盤に、フロントエンド実装までをAIで自動化するデザインエンジニアのポートフォリオ。OpenUIによる動的生成UIを実装。",
+  title: "5awr — Design Engineer",
+  description: "Design Engineer / 5awr のポートフォリオ。",
+  metadataBase: new URL("https://5awr.dev"),
+  openGraph: {
+    title: "5awr — Design Engineer",
+    description: "Design Engineer / 5awr のポートフォリオ。",
+    url: "https://5awr.dev",
+    siteName: "5awr",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "5awr — Design Engineer",
+    description: "Design Engineer / 5awr のポートフォリオ。",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
