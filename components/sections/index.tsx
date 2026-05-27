@@ -1,5 +1,13 @@
 import React from "react";
 import { ProjectCard } from "@/components/ds";
+import {
+  siNextdotjs,
+  siReact,
+  siTypescript,
+  siGooglegemini,
+  siZod,
+  siPnpm,
+} from "simple-icons";
 
 /* ============================================================
    Static sections
@@ -133,6 +141,53 @@ export function Work() {
           <ProjectCard key={p.title} title={p.title} description={p.description} tags={p.tags} />
         ))}
       </div>
+    </section>
+  );
+}
+
+const TECH = [
+  { icon: siNextdotjs, name: "Next.js",    note: "App Router · Edge Runtime" },
+  { icon: siReact,     name: "React",      note: "v19 · Server Components" },
+  { icon: siTypescript,name: "TypeScript", note: "型安全なフロントエンド" },
+  { icon: siGooglegemini, name: "Gemini", note: "2.5 Flash · OpenAI互換API" },
+  { icon: siZod,       name: "Zod",        note: "コンポーネントpropsの契約" },
+  { icon: siPnpm,      name: "pnpm",       note: "パッケージ管理" },
+];
+
+function TechIcon({ icon, name }: { icon: { path: string; hex: string }; name: string }) {
+  return (
+    <svg
+      role="img"
+      viewBox="0 0 24 24"
+      aria-label={name}
+      className="tech-icon"
+      fill="currentColor"
+    >
+      <path d={icon.path} />
+    </svg>
+  );
+}
+
+export function TechStack() {
+  return (
+    <section className="block" id="tech">
+      <span className="block__eyebrow">// built with</span>
+      <h2 className="block__title">使用技術</h2>
+      <ul className="tech__grid">
+        {TECH.map(({ icon, name, note }) => (
+          <li key={name} className="tech__item">
+            <TechIcon icon={icon} name={name} />
+            <span className="tech__name">{name}</span>
+            <span className="tech__note">{note}</span>
+          </li>
+        ))}
+        {/* OpenUI — simple-icons に未収録のためテキストロゴ */}
+        <li className="tech__item">
+          <span className="tech__text-logo" aria-label="OpenUI">UI</span>
+          <span className="tech__name">OpenUI</span>
+          <span className="tech__note">GenUI ストリーミングランタイム</span>
+        </li>
+      </ul>
     </section>
   );
 }

@@ -1,132 +1,124 @@
+@reference "./tokens.css";
+
 /* ============================================================
-   App layout & section styles
+   App layout & section styles — Tailwind v4 @layer components
    ============================================================ */
 
-/* ---------- Top bar ---------- */
-.topbar {
-  position: fixed;
-  top: var(--s-4);
-  right: var(--s-5);
-  z-index: 100;
-}
+@layer components {
 
-.theme-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  background: var(--bg-elevated);
-  border: 1px solid var(--line-bright);
-  border-radius: var(--r-md);
-  color: var(--ink-soft);
-  cursor: pointer;
-  transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease), background var(--dur) var(--ease);
-}
-.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+  /* ---- Top bar ---- */
+  .topbar { @apply fixed top-4 right-5 z-50; }
 
-/* ---------- Page ---------- */
-.page { width: 100%; }
-.page__inner {
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: var(--s-8) var(--s-5) var(--s-9);
-}
+  .theme-toggle {
+    @apply flex items-center justify-center w-9 h-9 bg-bg-elevated border border-line-bright rounded-md text-ink-soft cursor-pointer;
+    transition: border-color var(--duration-base) var(--ease-spring),
+                color var(--duration-base) var(--ease-spring),
+                background-color var(--duration-base) var(--ease-spring);
+  }
+  .theme-toggle:hover { @apply border-accent text-accent; }
 
-/* ---------- GenUI Demo ---------- */
-.genui {
-  margin: 0 0 var(--s-9);
-  padding: var(--s-7);
-  background: var(--bg-inset);
-  border: 1px solid var(--line-bright);
-  border-radius: var(--r-lg);
-  position: relative;
-}
-.genui::before {
-  content: "live region";
-  position: absolute; top: -10px; left: var(--s-6);
-  font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.12em;
-  text-transform: uppercase; color: #fff; background: var(--accent);
-  padding: 2px 10px; border-radius: 99px;
-}
-.genui__eyebrow { font-family: var(--font-mono); font-size: 0.76rem; color: var(--accent); }
-.genui__title {
-  font-family: var(--font-display); font-weight: 600;
-  font-size: clamp(1.6rem, 4vw, 2.4rem); margin: var(--s-3) 0 var(--s-3);
-  letter-spacing: -0.015em;
-}
-.genui__lede { font-family: var(--font-body); color: var(--ink-soft); max-width: 56ch; margin: 0 0 var(--s-6); }
-.genui__lede strong { color: var(--ink); }
+  /* ---- Page layout ---- */
+  .page { @apply w-full; }
+  .page__inner {
+    @apply mx-auto px-6 pt-16 pb-24;
+    max-width: var(--width-page);
+  }
 
-.genui__bar {
-  display: flex; align-items: center; gap: var(--s-3);
-  background: var(--bg-panel);
-  border: 1px solid var(--line-bright);
-  border-radius: var(--r-md);
-  padding: var(--s-3) var(--s-4);
-}
-.genui__bar:focus-within { border-color: var(--accent); }
-.genui__prompt-mark { font-family: var(--font-mono); color: var(--accent); font-size: 1.1rem; }
-.genui__input {
-  flex: 1; background: transparent; border: none; outline: none;
-  color: var(--ink); font-family: var(--font-mono); font-size: 0.95rem;
-}
-.genui__input::placeholder { color: var(--ink-ghost); }
-.genui__send {
-  font-family: var(--font-mono); font-size: 0.82rem;
-  background: var(--accent); color: #fff; border: none;
-  border-radius: var(--r-sm); padding: var(--s-2) var(--s-4); cursor: pointer;
-  transition: opacity var(--dur) var(--ease);
-}
-.genui__send:disabled { opacity: 0.4; cursor: not-allowed; }
+  /* ---- GenUI Demo ---- */
+  .genui {
+    @apply mb-24 p-12 bg-bg-inset border border-line-bright rounded-lg relative;
+  }
+  .genui::before {
+    @apply absolute -top-2.5 left-8 font-mono text-[0.66rem] tracking-[0.12em] uppercase text-white bg-accent px-2.5 py-0.5 rounded-full;
+    content: "live region";
+  }
+  .genui__eyebrow { @apply font-mono text-[0.76rem] text-accent; }
+  .genui__title {
+    @apply font-display font-semibold my-3;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    letter-spacing: -0.015em;
+  }
+  .genui__lede  { @apply font-body text-ink-soft max-w-[56ch] mb-8; }
+  .genui__lede strong { @apply text-ink; }
 
-.genui__chips { display: flex; flex-wrap: wrap; gap: var(--s-2); margin: var(--s-4) 0 var(--s-6); }
-.genui__chip {
-  font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-soft);
-  background: transparent; border: 1px solid var(--line-bright);
-  border-radius: 99px; padding: var(--s-2) var(--s-3); cursor: pointer;
-  transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease);
-}
-.genui__chip:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
-.genui__chip:disabled { opacity: 0.4; cursor: not-allowed; }
+  .genui__bar {
+    @apply flex items-center gap-3 bg-bg-panel border border-line-bright rounded-md px-4 py-3;
+    transition: border-color var(--duration-base) var(--ease-spring);
+  }
+  .genui__bar:focus-within { @apply border-accent; }
+  .genui__prompt-mark { @apply font-mono text-accent text-lg; }
+  .genui__input {
+    @apply flex-1 bg-transparent border-none outline-none text-ink font-mono text-[0.95rem];
+  }
+  .genui__input::placeholder { @apply text-ink-ghost; }
+  .genui__send {
+    @apply font-mono text-[0.82rem] bg-accent text-white border-none rounded-sm px-4 py-2 cursor-pointer;
+    transition: opacity var(--duration-base) var(--ease-spring);
+  }
+  .genui__send:disabled { @apply opacity-40 cursor-not-allowed; }
 
-.genui__stage {
-  min-height: 120px;
-  border-top: 1px dashed var(--line-bright);
-  padding-top: var(--s-6);
-}
-.genui__placeholder { color: var(--ink-faint); font-family: var(--font-body); }
-.genui__placeholder-mark {
-  display: inline-block; font-family: var(--font-mono); font-size: 0.82rem;
-  color: var(--accent); background: var(--accent-wash);
-  padding: 2px 10px; border-radius: var(--r-sm); margin-bottom: var(--s-3);
-}
+  .genui__chips { @apply flex flex-wrap gap-2 mt-4 mb-8; }
+  .genui__chip {
+    @apply font-mono text-[0.74rem] text-ink-soft bg-transparent border border-line-bright rounded-full px-3 py-2 cursor-pointer;
+    transition: border-color var(--duration-base) var(--ease-spring),
+                color var(--duration-base) var(--ease-spring);
+  }
+  .genui__chip:hover:not(:disabled) { @apply border-accent text-accent; }
+  .genui__chip:disabled { @apply opacity-40 cursor-not-allowed; }
 
-/* ---------- Generic block ---------- */
-.block { margin: var(--s-9) 0; }
-.block__eyebrow { font-family: var(--font-mono); font-size: 0.76rem; color: var(--accent); }
-.block__title {
-  font-family: var(--font-display); font-weight: 900;
-  font-size: clamp(1.8rem, 4.5vw, 2.8rem); letter-spacing: -0.02em;
-  margin: var(--s-3) 0 var(--s-5);
-}
-.block__note { font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-faint); margin-bottom: var(--s-5); }
+  .genui__stage {
+    @apply min-h-[120px] border-t border-dashed border-line-bright pt-8;
+  }
+  .genui__placeholder       { @apply text-ink-faint font-body; }
+  .genui__placeholder-mark  {
+    @apply inline-block font-mono text-[0.82rem] text-accent px-2.5 py-0.5 rounded-sm mb-3;
+    background: rgba(82, 168, 120, 0.08);
+  }
+  [data-theme="light"] .genui__placeholder-mark {
+    background: rgba(43, 112, 80, 0.08);
+  }
 
-/* ---------- Work ---------- */
-.work__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-4); }
-@media (max-width: 760px) { .work__grid { grid-template-columns: 1fr; } }
+  /* ---- Generic block ---- */
+  .block { @apply my-24; }
+  .block__eyebrow { @apply font-mono text-[0.76rem] text-accent; }
+  .block__title {
+    @apply font-display font-black mt-3 mb-6;
+    font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+    letter-spacing: -0.02em;
+  }
+  .block__note { @apply font-mono text-[0.8rem] text-ink-faint mb-6; }
 
-/* ---------- About ---------- */
-.about__grid { display: grid; grid-template-columns: 2fr 1fr; gap: var(--s-6); align-items: start; }
-.about__grid p { font-family: var(--font-body); color: var(--ink-soft); margin: 0; }
-.about__contact { display: flex; flex-direction: column; gap: var(--s-3); }
-.about__link { font-family: var(--font-mono); font-size: 0.88rem; color: var(--accent); border-bottom: 1px solid var(--accent-dim); width: fit-content; }
-@media (max-width: 760px) { .about__grid { grid-template-columns: 1fr; } }
+  /* ---- Tech Stack ---- */
+  .tech__grid {
+    @apply list-none m-0 p-0 grid gap-4;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+  .tech__item {
+    @apply flex flex-col gap-2 bg-bg-elevated border border-line rounded-md p-6;
+    transition: border-color var(--duration-base) var(--ease-spring);
+  }
+  .tech__item:hover   { @apply border-accent; }
+  .tech-icon          { @apply w-7 h-7 text-ink-soft shrink-0; }
+  .tech__text-logo    {
+    @apply inline-flex items-center justify-center w-7 h-7 font-mono text-[0.7rem] font-bold text-accent border-[1.5px] border-accent-dim rounded-sm shrink-0;
+  }
+  .tech__name         { @apply font-mono text-[0.88rem] text-ink font-medium; }
+  .tech__note         { @apply font-body text-[0.8rem] text-ink-faint leading-snug; }
 
-/* ---------- Footer ---------- */
-.footer {
-  margin-top: var(--s-9); padding-top: var(--s-5);
-  border-top: 1px solid var(--line);
-  display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--s-3);
-  font-family: var(--font-mono); font-size: 0.76rem; color: var(--ink-faint);
+  /* ---- Work ---- */
+  .work__grid { @apply grid grid-cols-3 gap-4; }
+  @media (max-width: 760px) { .work__grid { @apply grid-cols-1; } }
+
+  /* ---- About ---- */
+  .about__grid { @apply grid gap-8 items-start; grid-template-columns: 2fr 1fr; }
+  .about__grid p    { @apply font-body text-ink-soft m-0; }
+  .about__contact   { @apply flex flex-col gap-3; }
+  .about__link      { @apply font-mono text-[0.88rem] text-accent border-b border-accent-dim w-fit; }
+  @media (max-width: 760px) { .about__grid { @apply grid-cols-1; } }
+
+  /* ---- Footer ---- */
+  .footer {
+    @apply mt-24 pt-6 border-t border-line flex justify-between flex-wrap gap-3 font-mono text-[0.76rem] text-ink-faint;
+  }
+
 }

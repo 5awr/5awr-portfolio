@@ -1,110 +1,106 @@
-/* ============================================================
-   Design Tokens
-   ============================================================ */
+@import "tailwindcss";
 
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap');
 
-:root {
-  /* ---- Color: surfaces ---- */
-  --bg: #0c0d10;
-  --bg-elevated: #14161b;
-  --bg-panel: #1a1d24;
-  --bg-inset: #0a0b0e;
+/* ============================================================
+   Design Tokens — Tailwind v4 @theme
+   ここが全てのトークンの単一ソース。
+   ============================================================ */
+@theme {
+  /* ---- Colors: surfaces ---- */
+  --color-bg:          #0c0d10;
+  --color-bg-elevated: #14161b;
+  --color-bg-panel:    #1a1d24;
+  --color-bg-inset:    #0a0b0e;
 
-  /* ---- Color: ink ---- */
-  --ink: #eceef2;
-  --ink-soft: #a8adb8;
-  --ink-faint: #6b7180;
-  --ink-ghost: #3a3f4a;
+  /* ---- Colors: ink ---- */
+  --color-ink:       #eceef2;
+  --color-ink-soft:  #a8adb8;
+  --color-ink-faint: #6b7180;
+  --color-ink-ghost: #3a3f4a;
 
-  /* ---- Color: accent — calm green ---- */
-  --accent: #52a878;
-  --accent-dim: #2d6649;
-  --accent-wash: rgba(82, 168, 120, 0.08);
+  /* ---- Colors: accent — calm green ---- */
+  --color-accent:     #52a878;
+  --color-accent-dim: #2d6649;
 
-  /* ---- Color: lines / grid ---- */
-  --line: #262a33;
-  --line-bright: #353a45;
-  --blueprint: rgba(82, 168, 120, 0.05);
+  /* ---- Colors: lines ---- */
+  --color-line:        #262a33;
+  --color-line-bright: #353a45;
 
-  /* ---- Semantic ---- */
-  --up: #5fd08a;
-  --down: #e5705a;
-  --flat: var(--ink-faint);
+  /* ---- Colors: semantic ---- */
+  --color-up:   #5fd08a;
+  --color-down: #e5705a;
 
   /* ---- Typography ---- */
   --font-display: 'Fraunces', Georgia, serif;
-  --font-body: 'Newsreader', Georgia, serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-body:    'Newsreader', Georgia, serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, monospace;
 
-  /* ---- Spacing scale (8pt grid) ---- */
-  --s-1: 4px;
-  --s-2: 8px;
-  --s-3: 12px;
-  --s-4: 16px;
-  --s-5: 24px;
-  --s-6: 32px;
-  --s-7: 48px;
-  --s-8: 64px;
-  --s-9: 96px;
-  --s-10: 128px;
+  /* ---- Border radius ---- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
 
-  /* ---- Radius ---- */
-  --r-sm: 4px;
-  --r-md: 8px;
-  --r-lg: 14px;
-
-  /* ---- Motion ---- */
-  --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --dur: 0.5s;
+  /* ---- Animation ---- */
+  --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-base: 0.5s;
 
   /* ---- Layout ---- */
-  --maxw: 1080px;
+  --width-page: 1080px;
 }
 
-/* ---- Light theme ---- */
+/* ---- Light theme — CSS variable overrides ---- */
 [data-theme="light"] {
-  --bg: #ffffff;
-  --bg-elevated: #f5f6f8;
-  --bg-panel: #eef0f4;
-  --bg-inset: #f9fafb;
+  --color-bg:          #ffffff;
+  --color-bg-elevated: #f5f6f8;
+  --color-bg-panel:    #eef0f4;
+  --color-bg-inset:    #f9fafb;
 
-  --ink: #1a1e2a;
-  --ink-soft: #4a5066;
-  --ink-faint: #8090a8;
-  --ink-ghost: #c5cdd8;
+  --color-ink:       #1a1e2a;
+  --color-ink-soft:  #4a5066;
+  --color-ink-faint: #8090a8;
+  --color-ink-ghost: #c5cdd8;
 
-  --accent: #2b7050;
-  --accent-dim: #52a878;
-  --accent-wash: rgba(43, 112, 80, 0.08);
+  --color-accent:     #2b7050;
+  --color-accent-dim: #52a878;
 
-  --line: #e0e3ec;
-  --line-bright: #c8cdd8;
-  --blueprint: rgba(43, 112, 80, 0.04);
+  --color-line:        #e0e3ec;
+  --color-line-bright: #c8cdd8;
 }
 
-* { box-sizing: border-box; }
+/* ---- Base ---- */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: var(--font-body);
-  font-size: 18px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color var(--duration-base) var(--ease-spring),
+                color var(--duration-base) var(--ease-spring);
+  }
+
+  /* blueprint grid */
+  body {
+    background-image:
+      linear-gradient(rgba(82, 168, 120, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(82, 168, 120, 0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+    background-attachment: fixed;
+  }
+
+  [data-theme="light"] body {
+    background-image:
+      linear-gradient(rgba(43, 112, 80, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(43, 112, 80, 0.04) 1px, transparent 1px);
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  ::selection { background: var(--color-accent); color: #fff; }
 }
-
-body {
-  background-image:
-    linear-gradient(var(--blueprint) 1px, transparent 1px),
-    linear-gradient(90deg, var(--blueprint) 1px, transparent 1px);
-  background-size: 32px 32px;
-  background-attachment: fixed;
-}
-
-a { color: inherit; text-decoration: none; }
-
-::selection { background: var(--accent); color: #fff; }

@@ -1,152 +1,116 @@
+@reference "./tokens.css";
+
 /* ============================================================
    Design System — component styles
-   これらのクラスは「静的セクション」と「AI生成UI」の両方で使われる。
-   = 同じデザインシステムから両方が生えている証拠。
+   Tailwind v4 @layer components + @apply
    ============================================================ */
 
-/* layout: Stack */
-.ds-stack { display: flex; flex-direction: column; gap: var(--s-4); }
+@layer components {
 
-/* layout: Grid */
-.ds-grid {
-  display: grid;
-  gap: var(--s-4);
-  grid-template-columns: repeat(var(--cols, 2), minmax(0, 1fr));
-}
-@media (max-width: 720px) {
-  .ds-grid { grid-template-columns: 1fr; }
-}
+  /* ---- Stack ---- */
+  .ds-stack { @apply flex flex-col gap-4; }
 
-/* TextContent */
-.ds-text { margin: 0; color: var(--ink); }
-.ds-text--display {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: clamp(2rem, 5vw, 3.4rem);
-  line-height: 1.02;
-  letter-spacing: -0.02em;
-}
-.ds-text--heading {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(1.3rem, 3vw, 1.8rem);
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-}
-.ds-text--body { font-family: var(--font-body); color: var(--ink-soft); }
-.ds-text--mono {
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  color: var(--ink-faint);
-  letter-spacing: 0.02em;
-}
+  /* ---- Grid ---- */
+  .ds-grid {
+    @apply grid gap-4;
+    grid-template-columns: repeat(var(--cols, 2), minmax(0, 1fr));
+  }
+  @media (max-width: 720px) {
+    .ds-grid { @apply grid-cols-1; }
+  }
 
-/* StatCard */
-.ds-stat {
-  background: var(--bg-panel);
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  padding: var(--s-5);
-  position: relative;
-  overflow: hidden;
-}
-.ds-stat::before {
-  content: "";
-  position: absolute; inset: 0 auto 0 0;
-  width: 3px; background: var(--accent);
-}
-.ds-stat__value {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: 2.4rem;
-  line-height: 1;
-  color: var(--ink);
-}
-.ds-stat__label {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--ink-faint);
-  margin-top: var(--s-3);
-}
-.ds-stat__trend { font-size: 0.8rem; margin-top: var(--s-2); font-family: var(--font-mono); }
-.ds-stat__trend--up { color: var(--up); }
-.ds-stat__trend--down { color: var(--down); }
-.ds-stat__trend--flat { color: var(--flat); }
+  /* ---- TextContent ---- */
+  .ds-text { @apply m-0 text-ink; }
 
-/* ProjectCard */
-.ds-project {
-  background: var(--bg-elevated);
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  padding: var(--s-5);
-  transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
-}
-.ds-project:hover { border-color: var(--accent-dim); transform: translateY(-2px); }
-.ds-project__title {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 1.2rem;
-  margin: 0 0 var(--s-2);
-}
-.ds-project__desc { font-family: var(--font-body); color: var(--ink-soft); margin: 0 0 var(--s-4); font-size: 0.95rem; }
-.ds-project__tags { display: flex; flex-wrap: wrap; gap: var(--s-2); }
-.ds-tag {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--accent);
-  border: 1px solid var(--accent-dim);
-  border-radius: var(--r-sm);
-  padding: 2px 8px;
-}
-.ds-project__link {
-  display: inline-block; margin-top: var(--s-4);
-  font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent);
-  border-bottom: 1px solid var(--accent-dim);
-}
+  .ds-text--display {
+    @apply font-display font-black leading-none;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    letter-spacing: -0.02em;
+  }
+  .ds-text--heading {
+    @apply font-display font-semibold leading-tight;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    letter-spacing: -0.01em;
+  }
+  .ds-text--body  { @apply font-body text-ink-soft; }
+  .ds-text--mono  { @apply font-mono text-xs text-ink-faint tracking-wide; }
 
-/* Timeline */
-.ds-timeline { display: flex; flex-direction: column; gap: 0; }
-.ds-timeline__item {
-  display: grid; grid-template-columns: 110px 1fr; gap: var(--s-4);
-  padding: var(--s-4) 0; border-bottom: 1px solid var(--line);
-}
-.ds-timeline__when { font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent); }
-.ds-timeline__what { font-family: var(--font-body); }
-.ds-timeline__what strong { color: var(--ink); font-weight: 600; }
+  /* ---- StatCard ---- */
+  .ds-stat {
+    @apply bg-bg-panel border border-line rounded-md p-6 relative overflow-hidden;
+  }
+  .ds-stat::before {
+    @apply absolute inset-y-0 left-0 w-[3px] bg-accent;
+    content: "";
+  }
+  .ds-stat__value  { @apply font-display font-black text-4xl leading-none text-ink; }
+  .ds-stat__label  { @apply font-mono text-xs uppercase tracking-widest text-ink-faint mt-3; }
+  .ds-stat__trend  { @apply text-sm mt-2 font-mono; }
+  .ds-stat__trend--up   { @apply text-up; }
+  .ds-stat__trend--down { @apply text-down; }
+  .ds-stat__trend--flat { @apply text-ink-faint; }
 
-/* SkillBar */
-.ds-skill { display: flex; flex-direction: column; gap: var(--s-2); }
-.ds-skill__row { display: flex; justify-content: space-between; align-items: baseline; }
-.ds-skill__label { font-family: var(--font-mono); font-size: 0.82rem; color: var(--ink); }
-.ds-skill__pct { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-faint); }
-.ds-skill__track { height: 4px; background: var(--bg-inset); border-radius: 99px; overflow: hidden; }
-.ds-skill__fill { height: 100%; background: var(--accent); border-radius: 99px; transition: width 1s var(--ease); }
+  /* ---- ProjectCard ---- */
+  .ds-project {
+    @apply bg-bg-elevated border border-line rounded-md p-6;
+    transition: border-color var(--duration-base) var(--ease-spring),
+                transform var(--duration-base) var(--ease-spring);
+  }
+  .ds-project:hover {
+    @apply border-accent-dim -translate-y-0.5;
+  }
+  .ds-project__title { @apply font-display font-semibold text-xl m-0 mb-2; }
+  .ds-project__desc  { @apply font-body text-ink-soft m-0 mb-4 text-base; }
+  .ds-project__tags  { @apply flex flex-wrap gap-2; }
+  .ds-tag {
+    @apply font-mono text-[0.68rem] uppercase tracking-[0.08em] text-accent border border-accent-dim rounded-sm px-2 py-0.5;
+  }
+  .ds-project__link {
+    @apply inline-block mt-4 font-mono text-[0.78rem] text-accent border-b border-accent-dim;
+  }
 
-/* Callout */
-.ds-callout {
-  border-left: 3px solid var(--accent);
-  background: var(--accent-wash);
-  padding: var(--s-4) var(--s-5);
-  border-radius: 0 var(--r-md) var(--r-md) 0;
-  font-family: var(--font-body);
-  color: var(--ink);
-}
-.ds-callout--info { border-color: var(--accent); }
-.ds-callout--warn { border-color: var(--down); background: rgba(229,112,90,0.07); }
+  /* ---- Timeline ---- */
+  .ds-timeline { @apply flex flex-col; }
+  .ds-timeline__item {
+    @apply grid gap-4 py-4 border-b border-line;
+    grid-template-columns: 110px 1fr;
+  }
+  .ds-timeline__when { @apply font-mono text-[0.78rem] text-accent; }
+  .ds-timeline__what { @apply font-body; }
+  .ds-timeline__what strong { @apply text-ink font-semibold; }
 
-/* skeleton (forward-reference placeholder while streaming) */
-.ds-skeleton {
-  background: linear-gradient(90deg, var(--bg-panel) 25%, var(--bg-elevated) 50%, var(--bg-panel) 75%);
-  background-size: 200% 100%;
-  animation: ds-shimmer 1.4s infinite;
-  border-radius: var(--r-md);
-  min-height: 56px;
-}
-@keyframes ds-shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  /* ---- SkillBar ---- */
+  .ds-skill        { @apply flex flex-col gap-2; }
+  .ds-skill__row   { @apply flex justify-between items-baseline; }
+  .ds-skill__label { @apply font-mono text-[0.82rem] text-ink; }
+  .ds-skill__pct   { @apply font-mono text-xs text-ink-faint; }
+  .ds-skill__track { @apply h-1 bg-bg-inset rounded-full overflow-hidden; }
+  .ds-skill__fill  {
+    @apply h-full bg-accent rounded-full;
+    transition: width 1s var(--ease-spring);
+  }
+
+  /* ---- Callout ---- */
+  .ds-callout {
+    @apply border-l-[3px] border-accent px-6 py-4 rounded-r-md font-body text-ink;
+    background: rgba(82, 168, 120, 0.08);
+  }
+  [data-theme="light"] .ds-callout { background: rgba(43, 112, 80, 0.08); }
+  .ds-callout--warn {
+    @apply border-down;
+    background: rgba(229, 112, 90, 0.07);
+  }
+
+  /* ---- Skeleton ---- */
+  .ds-skeleton {
+    @apply rounded-md min-h-14;
+    background: linear-gradient(90deg, var(--color-bg-panel) 25%, var(--color-bg-elevated) 50%, var(--color-bg-panel) 75%);
+    background-size: 200% 100%;
+    animation: ds-shimmer 1.4s infinite;
+  }
+  @keyframes ds-shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
 }

@@ -1,6 +1,6 @@
 import GenUIDemo from "@/components/GenUIDemo";
 import ThemeToggle from "@/components/ThemeToggle";
-import { Work, About } from "@/components/sections";
+import { Work, TechStack, About } from "@/components/sections";
 
 export default function Page() {
   return (
@@ -11,6 +11,7 @@ export default function Page() {
       <div className="page__inner">
         <GenUIDemo />
         <Work />
+        <TechStack />
         <About />
         <footer className="footer">
           <span>© {new Date().getFullYear()} — Design Engineer Portfolio</span>
