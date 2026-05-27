@@ -158,7 +158,7 @@ export function Work() {
   return (
     <section className="block" id="work">
       <span className="block__eyebrow">// selected work</span>
-      <h2 className="block__title">実績</h2>
+      <h2 className="block__title">ワーク</h2>
 <div className="work__grid">
         {PROJECTS.map((p) => (
           <ProjectCard key={p.title} title={p.title} description={p.description} tags={p.tags} detail={p.detail} />
@@ -195,7 +195,7 @@ export function TechStack() {
   return (
     <section className="block" id="tech">
       <span className="block__eyebrow">// built with</span>
-      <h2 className="block__title">使用技術</h2>
+      <h2 className="block__title">このサイトの使用技術</h2>
       <ul className="tech__grid">
         {TECH.map(({ icon, name, note }) => (
           <li key={name} className="tech__item">
@@ -255,7 +255,10 @@ export function About() {
   return (
     <section className="block" id="about">
       <span className="block__eyebrow">// about</span>
-      <h2 className="block__title">5awr / SAWADA Ryunosuke</h2>
+      <div className="about__header">
+        <img src="/icon.png" alt="5awr" className="about__icon" />
+        <h2 className="block__title">5awr / SAWADA Ryunosuke</h2>
+      </div>
       <div className="about__grid">
         <p>
           デザインとエンジニアリングの両輪でデザインシステムを設計・構築し、AIを活用したフロントエンド実装の自動化を推進しています。

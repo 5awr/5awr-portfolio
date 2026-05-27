@@ -76,10 +76,10 @@
   }
   /* ---- Generic block ---- */
   .block { @apply my-24; }
-  .block__eyebrow { @apply font-mono text-[0.76rem] text-accent; }
+  .block__eyebrow { @apply font-mono text-[0.76rem] text-accent block mb-4; }
   .block__title {
-    @apply font-display font-black mt-3 mb-6;
-    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    @apply font-display font-semibold mt-3 mb-6;
+    font-size: clamp(1rem, 2vw, 1.25rem);
     letter-spacing: -0.01em;
   }
   .block__note { @apply font-mono text-[0.8rem] text-ink-faint mb-6; }
@@ -133,6 +133,12 @@
   }
 
   /* ---- About ---- */
+  .about__header { @apply flex items-center gap-4 mb-6; }
+  .about__header .block__title { @apply m-0; }
+  .about__icon   {
+    @apply w-14 h-14 rounded-full object-cover shrink-0;
+    border: 2px solid var(--color-accent);
+  }
   .about__grid { @apply grid gap-8 items-start; grid-template-columns: 2fr 1fr; }
   .about__grid p    { @apply font-body text-ink-soft m-0; }
   .about__contact   { @apply flex flex-col gap-3; }
