@@ -60,7 +60,7 @@
     @apply border-accent-dim -translate-y-0.5;
   }
   .ds-project__title { @apply font-display font-semibold text-xl m-0 mb-2; }
-  .ds-project__desc  { @apply font-body text-ink-soft m-0 mb-4 text-base; }
+  .ds-project__desc  { @apply font-body text-ink-soft m-0 mb-4 text-sm; }
   .ds-project__tags  { @apply flex flex-wrap gap-2; }
   .ds-tag {
     @apply font-mono text-[0.68rem] uppercase tracking-[0.08em] text-accent border border-accent-dim rounded-sm px-2 py-0.5;
