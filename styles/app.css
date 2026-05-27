@@ -20,13 +20,19 @@
   /* ---- Page layout ---- */
   .page { @apply w-full; }
   .page__inner {
-    @apply mx-auto px-6 pt-16 pb-24;
+    @apply mx-auto px-4 pt-16 pb-24;
     max-width: var(--width-page);
+  }
+  @media (min-width: 640px) {
+    .page__inner { @apply px-6; }
   }
 
   /* ---- GenUI Demo ---- */
   .genui {
-    @apply mb-24 p-12 bg-bg-inset border border-line-bright rounded-lg relative;
+    @apply mb-24 p-6 bg-bg-inset border border-line-bright rounded-lg relative;
+  }
+  @media (min-width: 640px) {
+    .genui { @apply p-12; }
   }
   .genui::before {
     @apply absolute -top-2.5 left-8 font-mono text-[0.66rem] tracking-[0.12em] uppercase text-white bg-accent px-2.5 py-0.5 rounded-full;
@@ -48,7 +54,8 @@
   .genui__bar:focus-within { @apply border-accent; }
   .genui__prompt-mark { @apply font-mono text-accent text-lg; }
   .genui__input {
-    @apply flex-1 bg-transparent border-none outline-none text-ink font-mono text-[0.95rem];
+    @apply flex-1 bg-transparent border-none outline-none text-ink font-mono;
+    font-size: 1rem; /* iOS zoom 防止: 16px 以上が必要 */
   }
   .genui__input::placeholder { @apply text-ink-ghost; }
   .genui__send {
