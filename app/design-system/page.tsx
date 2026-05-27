@@ -35,12 +35,15 @@ function Token({ name, value, preview }: { name: string; value: string; preview?
   );
 }
 
-function Swatch({ name, value, variable }: { name: string; value: string; variable: string }) {
+function Swatch({ name, dark, light, variable }: { name: string; dark: string; light?: string; variable: string }) {
   return (
     <div className="ds-page__swatch">
       <div className="ds-page__swatch-color" style={{ background: `var(${variable})` }} />
       <code className="ds-page__token-name">{variable}</code>
-      <span className="ds-page__token-value">{value}</span>
+      <div className="ds-page__swatch-values">
+        <span className="ds-page__token-value"><span className="ds-page__swatch-mode">D</span> {dark}</span>
+        {light && <span className="ds-page__token-value"><span className="ds-page__swatch-mode">L</span> {light}</span>}
+      </div>
       <span className="ds-page__token-label">{name}</span>
     </div>
   );
@@ -74,33 +77,33 @@ export default function DesignSystemPage() {
         <div className="ds-page__swatch-group">
           <p className="ds-page__group-label">Surfaces</p>
           <div className="ds-page__swatches">
-            <Swatch name="Background" value="#0c0d10" variable="--color-bg" />
-            <Swatch name="Elevated" value="#14161b" variable="--color-bg-elevated" />
-            <Swatch name="Panel" value="#1a1d24" variable="--color-bg-panel" />
-            <Swatch name="Inset" value="#0a0b0e" variable="--color-bg-inset" />
+            <Swatch name="Background" dark="#0c0d10" light="#ffffff" variable="--color-bg" />
+            <Swatch name="Elevated" dark="#14161b" light="#f5f6f8" variable="--color-bg-elevated" />
+            <Swatch name="Panel" dark="#1a1d24" light="#eef0f4" variable="--color-bg-panel" />
+            <Swatch name="Inset" dark="#0a0b0e" light="#f9fafb" variable="--color-bg-inset" />
           </div>
         </div>
         <div className="ds-page__swatch-group">
           <p className="ds-page__group-label">Ink</p>
           <div className="ds-page__swatches">
-            <Swatch name="Default" value="#eceef2" variable="--color-ink" />
-            <Swatch name="Soft" value="#ced2db" variable="--color-ink-soft" />
-            <Swatch name="Faint" value="#9199a6" variable="--color-ink-faint" />
-            <Swatch name="Ghost" value="#5c6270" variable="--color-ink-ghost" />
+            <Swatch name="Default" dark="#eceef2" light="#1a1e2a" variable="--color-ink" />
+            <Swatch name="Soft" dark="#ced2db" light="#4a5066" variable="--color-ink-soft" />
+            <Swatch name="Faint" dark="#9199a6" light="#8090a8" variable="--color-ink-faint" />
+            <Swatch name="Ghost" dark="#5c6270" light="#c5cdd8" variable="--color-ink-ghost" />
           </div>
         </div>
         <div className="ds-page__swatch-group">
           <p className="ds-page__group-label">Accent</p>
           <div className="ds-page__swatches">
-            <Swatch name="Accent" value="#52a878" variable="--color-accent" />
-            <Swatch name="Accent Dim" value="#2d6649" variable="--color-accent-dim" />
+            <Swatch name="Accent" dark="#52a878" light="#2b7050" variable="--color-accent" />
+            <Swatch name="Accent Dim" dark="#2d6649" light="#52a878" variable="--color-accent-dim" />
           </div>
         </div>
         <div className="ds-page__swatch-group">
           <p className="ds-page__group-label">Semantic</p>
           <div className="ds-page__swatches">
-            <Swatch name="Up" value="#5fd08a" variable="--color-up" />
-            <Swatch name="Down" value="#e5705a" variable="--color-down" />
+            <Swatch name="Up" dark="#5fd08a" variable="--color-up" />
+            <Swatch name="Down" dark="#e5705a" variable="--color-down" />
           </div>
         </div>
       </Section>

@@ -181,8 +181,11 @@
   .ds-page__swatch-color { @apply h-12 rounded-md border border-line-bright; }
 
   .ds-page__token-name { @apply font-mono text-[0.68rem] text-ink-soft; }
-  .ds-page__token-value { @apply font-mono text-[0.68rem] text-ink-faint; }
+  .ds-page__token-value { @apply font-mono text-[0.68rem] text-ink-faint flex items-center gap-1; }
   .ds-page__token-label { @apply font-body text-[0.75rem] text-ink-faint; }
+
+  .ds-page__swatch-values { @apply flex flex-col gap-0.5; }
+  .ds-page__swatch-mode { @apply font-mono text-[0.6rem] text-ink-ghost; }
 
   .ds-page__type-samples { @apply flex flex-col gap-8; }
   .ds-page__type-row { @apply flex flex-col gap-2; }
