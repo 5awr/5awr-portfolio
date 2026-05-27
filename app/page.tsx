@@ -1,13 +1,9 @@
 import GenUIDemo from "@/components/GenUIDemo";
-import ThemeToggle from "@/components/ThemeToggle";
 import { Work, TechStack, About, DesignSystemLink } from "@/components/sections";
 
 export default function Page() {
   return (
     <main className="page">
-      <div className="topbar">
-        <ThemeToggle />
-      </div>
       <div className="page__inner">
         <GenUIDemo />
         <Work />

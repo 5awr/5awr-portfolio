@@ -27,14 +27,13 @@ function MoonIcon() {
 }
 
 export default function ThemeToggle() {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState<boolean | null>(null);
 
   useEffect(() => {
     const saved = localStorage.getItem("theme");
-    if (saved === "light") {
-      setIsDark(false);
-      document.documentElement.setAttribute("data-theme", "light");
-    }
+    const dark = saved !== "light";
+    setIsDark(dark);
+    if (!dark) document.documentElement.setAttribute("data-theme", "light");
   }, []);
 
   const toggle = () => {
@@ -51,7 +50,7 @@ export default function ThemeToggle() {
 
   return (
     <button className="theme-toggle" onClick={toggle} aria-label="テーマ切り替え">
-      {isDark ? <SunIcon /> : <MoonIcon />}
+      {isDark === null ? null : isDark ? <SunIcon /> : <MoonIcon />}
     </button>
   );
 }

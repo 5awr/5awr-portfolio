@@ -123,8 +123,7 @@
     @apply flex gap-1.5;
   }
   .ds-link-card__swatch {
-    @apply h-6 rounded-sm flex-1;
-    border: 1px solid rgba(255,255,255,0.06);
+    @apply h-6 rounded-sm flex-1 border border-line-bright;
   }
   .ds-link-card__chips { @apply flex flex-wrap gap-2; }
 
@@ -172,7 +171,7 @@
 
   .ds-page__swatches { @apply flex flex-wrap gap-3; }
   .ds-page__swatch { @apply flex flex-col gap-1.5 w-32; }
-  .ds-page__swatch-color { @apply h-12 rounded-md border border-line; }
+  .ds-page__swatch-color { @apply h-12 rounded-md border border-line-bright; }
 
   .ds-page__token-name { @apply font-mono text-[0.68rem] text-ink-soft; }
   .ds-page__token-value { @apply font-mono text-[0.68rem] text-ink-faint; }

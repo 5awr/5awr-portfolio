@@ -64,7 +64,7 @@ export default function DesignSystemPage() {
         <div>
           <h1 className="ds-page__title">Design System</h1>
           <p className="ds-page__subtitle">
-            Tokens, components, and patterns used across this portfolio and its GenUI pipeline.
+            このポートフォリオとGenUIパイプラインで使用しているトークン・コンポーネント・パターン集。
           </p>
         </div>
       </header>
@@ -84,9 +84,9 @@ export default function DesignSystemPage() {
           <p className="ds-page__group-label">Ink</p>
           <div className="ds-page__swatches">
             <Swatch name="Default" value="#eceef2" variable="--color-ink" />
-            <Swatch name="Soft" value="#a8adb8" variable="--color-ink-soft" />
-            <Swatch name="Faint" value="#6b7180" variable="--color-ink-faint" />
-            <Swatch name="Ghost" value="#3a3f4a" variable="--color-ink-ghost" />
+            <Swatch name="Soft" value="#ced2db" variable="--color-ink-soft" />
+            <Swatch name="Faint" value="#9199a6" variable="--color-ink-faint" />
+            <Swatch name="Ghost" value="#5c6270" variable="--color-ink-ghost" />
           </div>
         </div>
         <div className="ds-page__swatch-group">
