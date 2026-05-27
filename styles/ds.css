@@ -114,11 +114,19 @@
 
   /* ---- Callout ---- */
   .ds-callout {
-    @apply px-5 py-4 rounded-md font-body text-ink-soft text-sm;
-    background: rgba(82, 168, 120, 0.08);
+    @apply px-5 py-4 rounded-md font-body text-white text-sm;
+    background: rgba(82, 168, 120, 0.18);
   }
-  [data-theme="light"] .ds-callout { background: rgba(43, 112, 80, 0.08); }
+  [data-theme="light"] .ds-callout {
+    @apply text-ink-soft;
+    background: rgba(43, 112, 80, 0.08);
+  }
   .ds-callout--warn {
+    @apply text-white;
+    background: rgba(229, 112, 90, 0.2);
+  }
+  [data-theme="light"] .ds-callout--warn {
+    @apply text-ink-soft;
     background: rgba(229, 112, 90, 0.07);
   }
 
