@@ -48,25 +48,21 @@
 
   /* ---- ProjectCard ---- */
   .ds-project {
+    display: grid;
+    grid-template-areas: "card";
     @apply border border-line rounded-md overflow-hidden;
     transition: border-color var(--duration-base) var(--ease-spring);
   }
   .ds-project:hover { @apply border-accent; }
 
-  /* grid stack: both front and detail occupy the same cell
-     → card height = max(front, detail height) */
-  .ds-project__stack {
-    display: grid;
-    grid-template-areas: "card";
+  .ds-project__front {
+    grid-area: card;
+    @apply p-6 bg-bg-elevated;
   }
-  .ds-project__front,
   .ds-project__detail {
     grid-area: card;
-    @apply p-6;
-  }
-  .ds-project__front { @apply bg-bg-elevated; }
-  .ds-project__detail {
-    @apply bg-bg-panel;
+    align-self: stretch;
+    @apply p-6 bg-bg-panel;
     transform: translateY(100%);
     transition: transform 0.4s var(--ease-spring);
   }

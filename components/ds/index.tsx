@@ -50,33 +50,31 @@ export function ProjectCard({
 }) {
   return (
     <div className="ds-project">
-      <div className="ds-project__stack">
-        <div className="ds-project__front">
-          <h3 className="ds-project__title">{title}</h3>
-          <p className="ds-project__desc">{description}</p>
-          <div className="ds-project__tags">
-            {tags.map((t) => (
-              <span className="ds-tag" key={t}>{t}</span>
-            ))}
-          </div>
-          {link && (
-            <a className="ds-project__link" href={link} target="_blank" rel="noreferrer">
-              View case study →
-            </a>
-          )}
+      <div className="ds-project__front">
+        <h3 className="ds-project__title">{title}</h3>
+        <p className="ds-project__desc">{description}</p>
+        <div className="ds-project__tags">
+          {tags.map((t) => (
+            <span className="ds-tag" key={t}>{t}</span>
+          ))}
         </div>
-        {detail && (
-          <div className="ds-project__detail">
-            <p className="ds-project__detail-desc">{detail.description}</p>
-            <dl className="ds-project__dl">
-              <dt>担当</dt>
-              <dd>{detail.role}</dd>
-              <dt>主な成果</dt>
-              <dd>{detail.achievement}</dd>
-            </dl>
-          </div>
+        {link && (
+          <a className="ds-project__link" href={link} target="_blank" rel="noreferrer">
+            View case study →
+          </a>
         )}
       </div>
+      {detail && (
+        <div className="ds-project__detail">
+          <p className="ds-project__detail-desc">{detail.description}</p>
+          <dl className="ds-project__dl">
+            <dt>担当</dt>
+            <dd>{detail.role}</dd>
+            <dt>主な成果</dt>
+            <dd>{detail.achievement}</dd>
+          </dl>
+        </div>
+      )}
     </div>
   );
 }
