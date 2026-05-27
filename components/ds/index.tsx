@@ -24,16 +24,11 @@ export function Grid({ children, columns = 2 }: { children?: React.ReactNode; co
   );
 }
 
-export type Trend = "up" | "down" | "flat";
-export function StatCard({ label, value, trend = "flat" }: { label: string; value: string; trend?: Trend }) {
-  const mark = trend === "up" ? "▲" : trend === "down" ? "▼" : "—";
+export function StatCard({ label, value }: { label: string; value: string }) {
   return (
     <div className="ds-stat">
-      <div className="ds-stat__value">{value}</div>
       <div className="ds-stat__label">{label}</div>
-      <div className={`ds-stat__trend ds-stat__trend--${trend}`}>
-        {mark} {trend}
-      </div>
+      <div className="ds-stat__value">{value}</div>
     </div>
   );
 }

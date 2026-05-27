@@ -39,16 +39,8 @@
   .ds-stat {
     @apply bg-bg-panel border border-line rounded-md p-6 relative overflow-hidden;
   }
-  .ds-stat::before {
-    @apply absolute inset-y-0 left-0 w-[3px] bg-accent;
-    content: "";
-  }
-  .ds-stat__value  { @apply font-display font-black text-4xl leading-none text-ink; }
-  .ds-stat__label  { @apply font-mono text-xs uppercase tracking-widest text-ink-faint mt-3; }
-  .ds-stat__trend  { @apply text-sm mt-2 font-mono; }
-  .ds-stat__trend--up   { @apply text-up; }
-  .ds-stat__trend--down { @apply text-down; }
-  .ds-stat__trend--flat { @apply text-ink-faint; }
+  .ds-stat__label  { @apply font-mono text-[0.68rem] uppercase tracking-widest text-ink-faint mb-3; }
+  .ds-stat__value  { @apply font-display font-black leading-none text-ink; font-size: clamp(2.4rem, 5vw, 3.2rem); }
 
   /* ---- ProjectCard ---- */
   .ds-project {
@@ -118,12 +110,11 @@
 
   /* ---- Callout ---- */
   .ds-callout {
-    @apply border-l-[3px] border-accent px-6 py-4 rounded-r-md font-body text-ink;
+    @apply px-5 py-4 rounded-md font-body text-ink-soft text-sm;
     background: rgba(82, 168, 120, 0.08);
   }
   [data-theme="light"] .ds-callout { background: rgba(43, 112, 80, 0.08); }
   .ds-callout--warn {
-    @apply border-down;
     background: rgba(229, 112, 90, 0.07);
   }
 

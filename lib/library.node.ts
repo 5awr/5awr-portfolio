@@ -28,8 +28,7 @@ const StatCardDef = defineComponent({
     "A single headline metric (years of experience, projects shipped, % faster, etc). Use inside a Grid when showing multiple stats.",
   props: z.object({
     label: z.string().describe("Short uppercase-style label, e.g. 'YEARS DESIGNING SYSTEMS'"),
-    value: z.string().describe("The metric value, e.g. '6+' or '40%'"),
-    trend: z.enum(["up", "down", "flat"]).describe("Directional indicator"),
+    value: z.string().describe("The metric value, e.g. '7 years' or '20+'"),
   }),
   component: null,
 });
