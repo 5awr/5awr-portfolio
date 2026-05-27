@@ -45,7 +45,7 @@ function GenUIDemoInner() {
     <section className="genui" id="genui">
       <div className="genui__head">
         <span className="genui__eyebrow">// live · generative ui</span>
-        <h2 className="genui__title">Hallo!</h2>
+        <h2 className="genui__title">Hello!</h2>
       </div>
 
       <form
@@ -86,9 +86,19 @@ function GenUIDemoInner() {
       </div>
 
       <div className="genui__stage" aria-live="polite">
-        {response && (
+        {isRunning && !response ? (
+          <div className="genui__skeleton">
+            <div className="ds-skeleton" style={{ height: 28, width: "55%", marginBottom: 16 }} />
+            <div className="ds-skeleton" style={{ height: 16, width: "80%", marginBottom: 8 }} />
+            <div className="ds-skeleton" style={{ height: 16, width: "65%", marginBottom: 24 }} />
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+              <div className="ds-skeleton" style={{ height: 88 }} />
+              <div className="ds-skeleton" style={{ height: 88 }} />
+            </div>
+          </div>
+        ) : response ? (
           <Renderer library={portfolioLibrary} response={response} isStreaming={isRunning} />
-        )}
+        ) : null}
       </div>
     </section>
   );
