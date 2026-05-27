@@ -40,7 +40,11 @@
     @apply bg-bg-panel border border-line rounded-md p-6 relative overflow-hidden;
   }
   .ds-stat__label  { @apply font-mono text-[0.68rem] uppercase tracking-widest text-ink-faint mb-3; }
-  .ds-stat__value  { @apply font-display font-black leading-none text-ink; font-size: clamp(2.4rem, 5vw, 3.2rem); }
+  .ds-stat__value  {
+    @apply font-display leading-none text-ink;
+    font-weight: 900;
+    font-size: clamp(2.4rem, 5vw, 3.2rem);
+  }
 
   /* ---- ProjectCard ---- */
   .ds-project {

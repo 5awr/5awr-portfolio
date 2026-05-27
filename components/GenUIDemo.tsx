@@ -20,7 +20,7 @@ import { portfolioLibrary } from "@/lib/library";
 
 const SUGGESTIONS = [
   "あなたの強みを3つ教えて",
-  "デザインシステムとAIの関係は？",
+  "どんな仕事を得意としていますか？",
   "これまでの実績を見せて",
   "スキルセットを可視化して",
 ];
