@@ -45,11 +45,9 @@ function GenUIDemoInner() {
     <section className="genui" id="genui">
       <div className="genui__head">
         <span className="genui__eyebrow">// live · generative ui</span>
-        <h2 className="genui__title">このサイトに、聞いてみてください</h2>
+        <h2 className="genui__title">聞いてみてください</h2>
         <p className="genui__lede">
-          入力に応じて、<strong>私のデザインシステムのコンポーネントだけ</strong>を使って
-          回答UIがその場で組み上がります。テキストの壁ではなく、設計された部品で。
-          これが「デザインシステム → AI実装」の実証です。
+          このチャットはテキストで返しません。私のデザインシステムのコンポーネントでUIを組んで答えます。
         </p>
       </div>
 
@@ -91,13 +89,8 @@ function GenUIDemoInner() {
       </div>
 
       <div className="genui__stage" aria-live="polite">
-        {response ? (
+        {response && (
           <Renderer library={portfolioLibrary} response={response} isStreaming={isRunning} />
-        ) : (
-          <div className="genui__placeholder">
-            <span className="genui__placeholder-mark">root = Stack([ … ])</span>
-            <p>プロンプトを送ると、ここに OpenUI Lang がストリームされ、UIが組み上がります。</p>
-          </div>
         )}
       </div>
     </section>

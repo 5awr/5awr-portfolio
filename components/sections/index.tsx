@@ -7,6 +7,7 @@ import {
   siGooglegemini,
   siZod,
   siPnpm,
+  siGithub,
 } from "simple-icons";
 
 /* ============================================================
@@ -112,19 +113,24 @@ export function Workflow() {
 
 const PROJECTS = [
   {
-    title: "Atlas Design System",
-    description: "トークンと60コンポーネントを4つのプロダクトチームへ供給。運用ドキュメントを整備。",
-    tags: ["Design System", "Tokens", "TypeScript"],
+    title: "xenoMateria",
+    description: "B2B SaaS xenoBrainのデザインシステム(token/components)設計、運用フロー構築、実装。",
+    tags: ["Design System", "Tokens", "TypeScript", "Vue", "Storybook", "Figma", "Claude Code"],
+  },
+  {
+    title: "Design Efficiency",
+    description: "xenoMateria導入によりデザイン工程の工数を1/5に削減。",
+    tags: ["Design System", "Figma", "DX"],
+  },
+  {
+    title: "Vue 2 → Vue 3 Migration",
+    description: "xenoBrainプロダクトのVue 2→Vue 3移行。xenoMateriaコンポーネントの刷新も並行して実施。",
+    tags: ["Vue", "Migration", "TypeScript"],
   },
   {
     title: "GenUI Pipeline",
     description: "このサイト。LLMがOpenUI Langをストリームし、デザインシステムが描画する。",
-    tags: ["OpenUI", "Streaming", "TypeScript"],
-  },
-  {
-    title: "Spec-to-Code",
-    description: "Figmaの仕様から型付きコンポーネントをコード生成し、ハンドオフ時間を約40%短縮。",
-    tags: ["Codegen", "DX", "Automation"],
+    tags: ["OpenUI", "Streaming", "TypeScript", "Next.js", "Gemini"],
   },
 ];
 
@@ -199,13 +205,16 @@ export function About() {
       <h2 className="block__title">プロフィール</h2>
       <div className="about__grid">
         <p>
-          デザインとエンジニアリングの境界で働くデザインエンジニア。
-          デザインシステムの構築・運用と、それを基盤にしたAIによる実装自動化を専門にしています。
+          デザインとエンジニアリングの両輪によってデザインシステムの構築・運用、それを基盤にしたAIによるフロントエンド実装自動化を推進しています。
           主言語はTypeScript。
         </p>
         <div className="about__contact">
-          <a href="mailto:hello@example.com" className="about__link">hello@example.com</a>
-          <a href="https://github.com/" className="about__link" target="_blank" rel="noreferrer">GitHub →</a>
+          <a href="https://github.com/5awr" className="about__link" target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true" style={{ display: "inline", verticalAlign: "middle", marginRight: 6 }}>
+              <path d={siGithub.path} />
+            </svg>
+            5awr
+          </a>
           <a href="https://www.openui.com" className="about__link" target="_blank" rel="noreferrer">Built with OpenUI →</a>
         </div>
       </div>

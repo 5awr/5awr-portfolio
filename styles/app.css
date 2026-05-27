@@ -69,22 +69,13 @@
   .genui__stage {
     @apply min-h-[120px] border-t border-dashed border-line-bright pt-8;
   }
-  .genui__placeholder       { @apply text-ink-faint font-body; }
-  .genui__placeholder-mark  {
-    @apply inline-block font-mono text-[0.82rem] text-accent px-2.5 py-0.5 rounded-sm mb-3;
-    background: rgba(82, 168, 120, 0.08);
-  }
-  [data-theme="light"] .genui__placeholder-mark {
-    background: rgba(43, 112, 80, 0.08);
-  }
-
   /* ---- Generic block ---- */
   .block { @apply my-24; }
   .block__eyebrow { @apply font-mono text-[0.76rem] text-accent; }
   .block__title {
     @apply font-display font-black mt-3 mb-6;
-    font-size: clamp(1.8rem, 4.5vw, 2.8rem);
-    letter-spacing: -0.02em;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    letter-spacing: -0.01em;
   }
   .block__note { @apply font-mono text-[0.8rem] text-ink-faint mb-6; }
 
