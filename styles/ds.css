@@ -1,0 +1,152 @@
+/* ============================================================
+   Design System — component styles
+   これらのクラスは「静的セクション」と「AI生成UI」の両方で使われる。
+   = 同じデザインシステムから両方が生えている証拠。
+   ============================================================ */
+
+/* layout: Stack */
+.ds-stack { display: flex; flex-direction: column; gap: var(--s-4); }
+
+/* layout: Grid */
+.ds-grid {
+  display: grid;
+  gap: var(--s-4);
+  grid-template-columns: repeat(var(--cols, 2), minmax(0, 1fr));
+}
+@media (max-width: 720px) {
+  .ds-grid { grid-template-columns: 1fr; }
+}
+
+/* TextContent */
+.ds-text { margin: 0; color: var(--ink); }
+.ds-text--display {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+.ds-text--heading {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+.ds-text--body { font-family: var(--font-body); color: var(--ink-soft); }
+.ds-text--mono {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  letter-spacing: 0.02em;
+}
+
+/* StatCard */
+.ds-stat {
+  background: var(--bg-panel);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: var(--s-5);
+  position: relative;
+  overflow: hidden;
+}
+.ds-stat::before {
+  content: "";
+  position: absolute; inset: 0 auto 0 0;
+  width: 3px; background: var(--accent);
+}
+.ds-stat__value {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: var(--ink);
+}
+.ds-stat__label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-faint);
+  margin-top: var(--s-3);
+}
+.ds-stat__trend { font-size: 0.8rem; margin-top: var(--s-2); font-family: var(--font-mono); }
+.ds-stat__trend--up { color: var(--up); }
+.ds-stat__trend--down { color: var(--down); }
+.ds-stat__trend--flat { color: var(--flat); }
+
+/* ProjectCard */
+.ds-project {
+  background: var(--bg-elevated);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: var(--s-5);
+  transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.ds-project:hover { border-color: var(--accent-dim); transform: translateY(-2px); }
+.ds-project__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin: 0 0 var(--s-2);
+}
+.ds-project__desc { font-family: var(--font-body); color: var(--ink-soft); margin: 0 0 var(--s-4); font-size: 0.95rem; }
+.ds-project__tags { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.ds-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  border: 1px solid var(--accent-dim);
+  border-radius: var(--r-sm);
+  padding: 2px 8px;
+}
+.ds-project__link {
+  display: inline-block; margin-top: var(--s-4);
+  font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent);
+  border-bottom: 1px solid var(--accent-dim);
+}
+
+/* Timeline */
+.ds-timeline { display: flex; flex-direction: column; gap: 0; }
+.ds-timeline__item {
+  display: grid; grid-template-columns: 110px 1fr; gap: var(--s-4);
+  padding: var(--s-4) 0; border-bottom: 1px solid var(--line);
+}
+.ds-timeline__when { font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent); }
+.ds-timeline__what { font-family: var(--font-body); }
+.ds-timeline__what strong { color: var(--ink); font-weight: 600; }
+
+/* SkillBar */
+.ds-skill { display: flex; flex-direction: column; gap: var(--s-2); }
+.ds-skill__row { display: flex; justify-content: space-between; align-items: baseline; }
+.ds-skill__label { font-family: var(--font-mono); font-size: 0.82rem; color: var(--ink); }
+.ds-skill__pct { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-faint); }
+.ds-skill__track { height: 4px; background: var(--bg-inset); border-radius: 99px; overflow: hidden; }
+.ds-skill__fill { height: 100%; background: var(--accent); border-radius: 99px; transition: width 1s var(--ease); }
+
+/* Callout */
+.ds-callout {
+  border-left: 3px solid var(--accent);
+  background: var(--accent-wash);
+  padding: var(--s-4) var(--s-5);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+}
+.ds-callout--info { border-color: var(--accent); }
+.ds-callout--warn { border-color: var(--down); background: rgba(229,112,90,0.07); }
+
+/* skeleton (forward-reference placeholder while streaming) */
+.ds-skeleton {
+  background: linear-gradient(90deg, var(--bg-panel) 25%, var(--bg-elevated) 50%, var(--bg-panel) 75%);
+  background-size: 200% 100%;
+  animation: ds-shimmer 1.4s infinite;
+  border-radius: var(--r-md);
+  min-height: 56px;
+}
+@keyframes ds-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
