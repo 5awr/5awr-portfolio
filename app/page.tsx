@@ -1,14 +1,15 @@
 import GenUIDemo from "@/components/GenUIDemo";
-import { Hero, Thesis, Workflow, Work, About } from "@/components/sections";
+import ThemeToggle from "@/components/ThemeToggle";
+import { Work, About } from "@/components/sections";
 
 export default function Page() {
   return (
     <main className="page">
+      <div className="topbar">
+        <ThemeToggle />
+      </div>
       <div className="page__inner">
-        <Hero />
         <GenUIDemo />
-        <Thesis />
-        <Workflow />
         <Work />
         <About />
         <footer className="footer">
