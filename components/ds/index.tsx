@@ -79,6 +79,13 @@ export function ProjectCard({
   );
 }
 
+function renderStrong(text: string) {
+  return text.split(/(<strong>.*?<\/strong>)/g).map((part, i) => {
+    const match = part.match(/^<strong>(.*?)<\/strong>$/);
+    return match ? <strong key={i}>{match[1]}</strong> : part;
+  });
+}
+
 export type TimelineItem = { when: string; what: string };
 export function Timeline({ items = [] }: { items?: TimelineItem[] }) {
   return (
@@ -86,7 +93,7 @@ export function Timeline({ items = [] }: { items?: TimelineItem[] }) {
       {items.map((it, i) => (
         <div className="ds-timeline__item" key={i}>
           <div className="ds-timeline__when">{it.when}</div>
-          <div className="ds-timeline__what" dangerouslySetInnerHTML={{ __html: it.what }} />
+          <div className="ds-timeline__what">{renderStrong(it.what)}</div>
         </div>
       ))}
     </div>
