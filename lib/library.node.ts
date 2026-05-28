@@ -41,7 +41,7 @@ const ProjectCardDef = defineComponent({
     title: z.string(),
     description: z.string().describe("One or two sentence summary of the project"),
     tags: z.array(z.string()).describe("Tech / role tags, e.g. ['Design System','OpenUI','TypeScript']"),
-    link: z.string().optional().describe("Optional case-study URL"),
+    link: z.string().url().optional().describe("Optional case-study URL (must be https)"),
   }),
   component: null,
 });

@@ -1,5 +1,14 @@
 import OpenAI from "openai";
+import { z } from "zod";
 import { portfolioLibraryNode } from "@/lib/library.node";
+
+const MessageSchema = z.object({
+  role: z.enum(["user", "assistant"]),
+  content: z.string().max(2000),
+});
+const BodySchema = z.object({
+  messages: z.array(MessageSchema).min(1).max(20),
+});
 
 /* ============================================================
    POST /api/genui
@@ -46,7 +55,14 @@ Rules:
 `;
 
 export async function POST(req: Request) {
-  const { messages } = await req.json();
+  const parsed = BodySchema.safeParse(await req.json());
+  if (!parsed.success) {
+    return new Response(JSON.stringify({ error: "Invalid request" }), {
+      status: 400,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+  const { messages } = parsed.data;
   const systemPrompt = `${PORTFOLIO_FACTS}\n\n${portfolioLibraryNode.prompt()}`;
 
   let response;
@@ -58,7 +74,8 @@ export async function POST(req: Request) {
       temperature: 0.4,
     });
   } catch (err: unknown) {
-    const status = (err as { status?: number })?.status ?? 500;
+    const upstreamStatus = (err as { status?: number })?.status;
+    const status = upstreamStatus === 429 ? 429 : 500;
     const message = status === 429
       ? "リクエスト制限に達しました。しばらく待ってから試してください。"
       : "エラーが発生しました。しばらく待ってから試してください。";
