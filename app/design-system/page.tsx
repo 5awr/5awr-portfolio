@@ -11,7 +11,7 @@ import {
 } from "@/components/ds";
 
 export const metadata = {
-  title: "Design System — xenoMateria",
+  title: "Design System",
   description: "Component library and design tokens for this portfolio.",
 };
 
@@ -210,8 +210,8 @@ export default function DesignSystemPage() {
         <p className="ds-page__desc">ポートフォリオカード。ホバーで詳細がスライドアップする。</p>
         <ComponentPreview label="hover to reveal detail">
           <ProjectCard
-            title="xenoMateria"
-            description="B2B SaaS xenoBrainのデザインシステム設計・運用フロー構築・実装。"
+            title="Design System"
+            description="デザインシステムの設計・運用フロー構築・実装。"
             tags={["Design System", "Tokens", "Vue", "TypeScript"]}
             detail={{
               description: "既存プロダクトのバラバラなコンポーネントを整理し、トークンとコンポーネントを定義。",
@@ -236,9 +236,9 @@ export default function DesignSystemPage() {
         <p className="ds-page__desc">時系列リスト。キャリア歴やワークフローの表示に使う。</p>
         <ComponentPreview label="example">
           <Timeline items={[
-            { when: "2024", what: "xenoMateriaデザインシステムの構築・運用" },
-            { when: "2023", what: "Vue 2 → Vue 3 移行プロジェクト" },
-            { when: "2022", what: "UIデザイン・フロントエンド実装を開始" },
+            { when: "2026", what: "デザインシステムの構築・運用" },
+            { when: "2025", what: "Vue 2 → Vue 3 移行プロジェクト" },
+            { when: "2024", what: "UIデザイン・フロントエンド実装を開始" },
           ]} />
         </ComponentPreview>
       </Section>

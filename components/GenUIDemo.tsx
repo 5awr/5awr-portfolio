@@ -112,12 +112,16 @@ export default function GenUIDemo() {
     <ChatProvider
       streamProtocol={openAIReadableStreamAdapter()}
       processMessage={async ({ messages, abortController }) => {
-        return fetch("/api/genui", {
+        const res = await fetch("/api/genui", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ messages: openAIMessageFormat.toApi(messages) }),
           signal: abortController.signal,
         });
+        if (res.status === 403 || res.status === 429) {
+          throw new Error("リクエストが多すぎます。しばらく待ってから試してください。");
+        }
+        return res;
       }}
     >
       <GenUIDemoInner />
