@@ -113,6 +113,16 @@ export function Workflow() {
 
 const PROJECTS = [
   {
+    title: "Design System",
+    description: "B2B SaaSプロダクトのデザインシステム(token/components)設計、運用フロー構築、実装。",
+    tags: ["Design System", "Tokens", "TypeScript", "Vue", "Storybook", "Figma", "Claude Code"],
+    detail: {
+      description: "既存プロダクトで使用されているバラバラな仕様のコンポーネントをグルーピング。必要なコンポーネントを取捨選択し、新しいコンポーネントをデザイン。TailwindCSSを導入し、色、サイズ、タイポグラフィー、スペーシングなどのプリミティブトークンおよびセマンティックトークンを定義。",
+      role: "デザインシステムに関わる全て（設計から実装まで）",
+      achievement: "実装の自動化基盤の構築",
+    },
+  },
+  {
     title: "Design Efficiency",
     description: "デザインシステム導入によりデザイン工程の工数を1/5に削減。",
     tags: ["Design System", "Figma", "DX"],
