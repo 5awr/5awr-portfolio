@@ -191,6 +191,75 @@ function TechIcon({ icon, name }: { icon: { path: string; hex: string }; name: s
   );
 }
 
+export function PersonalProjects() {
+  return (
+    <section className="block" id="personal">
+      <span className="block__eyebrow">// personal work</span>
+      <h2 className="block__title">個人開発</h2>
+      <div className="solo-card">
+        <div className="solo-card__header">
+          <div className="flex items-center gap-3">
+            <span className="solo-card__badge">個人開発</span>
+            <span className="font-mono text-[0.76rem] text-ink-faint">2026.06 – present</span>
+          </div>
+          <a
+            href="https://mynekko.app"
+            className="solo-card__link"
+            target="_blank"
+            rel="noreferrer"
+          >
+            mynekko.app →
+          </a>
+        </div>
+        <div className="solo-card__body">
+          <div className="solo-card__left">
+            <a
+              href="https://mynekko.app"
+              className="solo-card__ogp-link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src="/mynekko-ogp.png" alt="mynekko" />
+              <div className="solo-card__ogp-link__body">
+                <span className="solo-card__ogp-link__name">mynekko</span>
+                <span className="solo-card__ogp-link__url">mynekko.app →</span>
+              </div>
+            </a>
+            <p className="solo-card__desc">
+              ねこのイラストを SVG パーツの組み合わせと色で作るイラスト生成サービス。
+              体のパーツをカスタマイズし、作成したイラストを画像でダウンロードできる。
+            </p>
+            <div className="solo-card__tags">
+              {["React", "TypeScript", "Vite", "Tailwind CSS", "Radix UI", "SVG", "Vercel"].map((t) => (
+                <span className="ds-tag" key={t}>{t}</span>
+              ))}
+            </div>
+          </div>
+          <div className="solo-card__right">
+            <dl className="solo-card__dl">
+              <div>
+                <dt className="solo-card__dt">役割</dt>
+                <dd className="solo-card__dd">企画 · イラストレーション · デザイン · 実装 · 運用</dd>
+              </div>
+              <div>
+                <dt className="solo-card__dt">主な機能</dt>
+                <dd className="solo-card__dd">
+                  <div className="solo-card__features">
+                    <span className="solo-card__feature">SVG 体パーツ合成によるリアルタイムプレビュー</span>
+                    <span className="solo-card__feature">カラーパレットによるカスタムカラー設定</span>
+                    <span className="solo-card__feature">作成したイラストを画像でダウンロード</span>
+                    <span className="solo-card__feature">SUZURI API を利用したグッズ化展開</span>
+                  </div>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function TechStack() {
   return (
     <section className="block" id="tech">
