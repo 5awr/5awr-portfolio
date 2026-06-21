@@ -1,5 +1,5 @@
 import GenUIDemo from "@/components/GenUIDemo";
-import { Work, TechStack, About, DesignSystemLink } from "@/components/sections";
+import { Work, PersonalProjects, TechStack, About, DesignSystemLink } from "@/components/sections";
 
 export default function Page() {
   return (
@@ -7,6 +7,7 @@ export default function Page() {
       <div className="page__inner">
         <GenUIDemo />
         <Work />
+        <PersonalProjects />
         <TechStack />
         <DesignSystemLink />
         <About />

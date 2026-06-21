@@ -138,6 +138,85 @@
     .ds-link-card { @apply flex-col; }
   }
 
+  /* ---- Personal Work ---- */
+  .solo-card {
+    @apply border border-line rounded-lg overflow-hidden;
+    transition: border-color var(--duration-base) var(--ease-spring);
+  }
+  .solo-card:hover { @apply border-accent; }
+
+  .solo-card__header {
+    @apply flex items-center justify-between gap-4 px-8 py-5 border-b border-line bg-bg-panel;
+  }
+  .solo-card__badge {
+    @apply font-mono text-[0.68rem] uppercase tracking-widest text-accent border border-accent-dim rounded-sm px-2 py-0.5;
+  }
+  .solo-card__link {
+    @apply font-mono text-[0.78rem] text-accent border-b border-accent-dim;
+  }
+
+  .solo-card__ogp-link {
+    @apply flex items-center gap-3 bg-bg-inset border border-line-bright rounded-md overflow-hidden w-full;
+    transition: border-color var(--duration-base) var(--ease-spring);
+  }
+  .solo-card__ogp-link:hover { @apply border-accent; }
+  .solo-card__ogp-link img {
+    @apply shrink-0 object-cover;
+    width: 160px;
+    height: 84px;
+  }
+  .solo-card__ogp-link__body {
+    @apply flex flex-col gap-0.5 pr-4;
+  }
+  .solo-card__ogp-link__name {
+    @apply font-display font-semibold text-ink text-sm;
+  }
+  .solo-card__ogp-link__url {
+    @apply font-mono text-[0.7rem] text-accent;
+  }
+
+  .solo-card__body {
+    @apply grid bg-bg-elevated;
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 720px) {
+    .solo-card__body { @apply grid-cols-1; }
+  }
+
+  .solo-card__left {
+    @apply flex flex-col gap-6 px-8 py-8 border-r border-line;
+  }
+  @media (max-width: 720px) {
+    .solo-card__left { @apply border-r-0 border-b border-line; }
+  }
+
+  .solo-card__desc {
+    @apply font-body text-ink-soft text-sm leading-relaxed m-0;
+  }
+  .solo-card__tags { @apply flex flex-wrap gap-2; }
+
+  .solo-card__right {
+    @apply flex flex-col gap-6 px-8 py-8;
+  }
+  .solo-card__dl {
+    @apply m-0 flex flex-col gap-5;
+  }
+  .solo-card__dt {
+    @apply font-mono text-[0.68rem] uppercase tracking-widest text-accent mb-1.5;
+  }
+  .solo-card__dd {
+    @apply font-body text-sm text-ink-soft m-0;
+  }
+  .solo-card__features {
+    @apply flex flex-col gap-1.5;
+  }
+  .solo-card__feature {
+    @apply font-body text-sm text-ink-soft flex gap-2 items-start;
+  }
+  .solo-card__feature::before {
+    content: "—";
+    @apply font-mono text-accent shrink-0;
+  }
   /* ---- About ---- */
   .about__header { @apply flex items-center gap-4 mb-6; }
   .about__header .block__title { @apply m-0; }
