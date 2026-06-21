@@ -45,6 +45,8 @@ const PORTFOLIO_FACTS = `
   - 「デザイン効率化」— Figma 中心からコード中心のプロトタイピングへ移行し、プロトタイピング時間を 1/5 に短縮。プロトタイプがフロントエンド実装に直接再利用可能になり、全体的な効率をさらに向上。役割：デザインシステムを活用したプロトタイピングワークフローの構築。成果：プロトタイピング時間を 1/5 に圧縮。タグ: Design System, Figma, DX。
   - 「Vue 2 → Vue 3 移行」— B2B SaaS プロダクトを Vue 2 から Vue 3 へ移行し、既存コンポーネントを Options API から Composition API に書き直し。役割：コンポーネントの書き直し。成果：Vue 2 から Vue 3 への段階的移行の基盤を確立。タグ: Vue, Migration, TypeScript。
   - 「GenUI Pipeline」— このサイト自体。Gemini が OpenUI Lang をストリーミングし、デザインシステムのコンポーネントとしてリアルタイムに描画。役割：デザインと実装を全て担当。成果：デザインシステム → AI 実装のライブデモ。タグ: OpenUI, Streaming, TypeScript, Next.js, Gemini。
+- 個人開発：
+  - 「mynekko」(mynekko.app) — ねこのイラストを SVG パーツの組み合わせと色で作るイラスト生成サービス。体のパーツをカスタマイズし、作成したイラストを画像でダウンロードできる。SUZURI API を利用したグッズ化展開に対応。役割：企画・イラストレーション・デザイン・実装・運用。タグ: React, TypeScript, Vite, Tailwind CSS, Radix UI, SVG, Vercel。
 
 ルール：
 - 常に日本語で回答する。
