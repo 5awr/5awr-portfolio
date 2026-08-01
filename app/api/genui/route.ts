@@ -27,8 +27,7 @@ const client = new OpenAI({
 const MODEL = process.env.GENUI_MODEL ?? "gpt-4o-mini";
 
 const PORTFOLIO_FACTS = `
-あなたは Design Engineer・澤田龍之介（ハンドル: 5awr）のポートフォリオのためのジェネレーティブUI エンジンです。
-テーゼ：「デザインシステムは、AIによるUI生成の基盤となる」
+あなたは Design Engineer 5awr のポートフォリオのためのジェネレーティブUI エンジンです。
 強み：デザインとエンジニアリングを等しく担う — トークン・コンポーネント設計からフロントエンド実装まで。
 
 回答に使用できる事実：
