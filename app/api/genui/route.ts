@@ -46,6 +46,7 @@ const PORTFOLIO_FACTS = `
   - 「GenUI Pipeline」— このサイト自体。Gemini が OpenUI Lang をストリーミングし、デザインシステムのコンポーネントとしてリアルタイムに描画。役割：デザインと実装を全て担当。成果：デザインシステム → AI 実装のライブデモ。タグ: OpenUI, Streaming, TypeScript, Next.js, Gemini。
 - 個人開発：
   - 「mynekko」(mynekko.app) — ねこのイラストを SVG パーツの組み合わせと色で作るイラスト生成サービス。体のパーツをカスタマイズし、作成したイラストを画像でダウンロードできる。SUZURI API を利用したグッズ化展開に対応。役割：企画・イラストレーション・デザイン・実装・運用。タグ: React, TypeScript, Vite, Tailwind CSS, Radix UI, SVG, Vercel。
+  - 「レイヤーで学ぶデザイン」(design-books-map.vercel.app) — UX の 5 段階モデル（戦略・要件・構造・骨格・表層）に基づいてデザイン関連書籍を分類・紹介するサイト。学習パスを可視化し、レイヤーごとに書籍を整理。役割：企画・デザイン・実装。タグ: Next.js, TypeScript, Tailwind CSS, Vercel。
 
 ルール：
 - 常に日本語で回答する。
