@@ -256,6 +256,65 @@ export function PersonalProjects() {
           </div>
         </div>
       </div>
+      <div className="solo-card mt-4">
+        <div className="solo-card__header">
+          <div className="flex items-center gap-3">
+            <span className="solo-card__badge">個人開発</span>
+            <span className="font-mono text-[0.76rem] text-ink-faint">2026.08</span>
+          </div>
+          <a
+            href="https://design-books-map.vercel.app"
+            className="solo-card__link"
+            target="_blank"
+            rel="noreferrer"
+          >
+            design-books-map.vercel.app →
+          </a>
+        </div>
+        <div className="solo-card__body">
+          <div className="solo-card__left">
+            <a
+              href="https://design-books-map.vercel.app"
+              className="solo-card__ogp-link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src="/design-books-ogp.png" alt="レイヤーで学ぶデザイン" />
+              <div className="solo-card__ogp-link__body">
+                <span className="solo-card__ogp-link__name">レイヤーで学ぶデザイン</span>
+                <span className="solo-card__ogp-link__url">design-books-map.vercel.app →</span>
+              </div>
+            </a>
+            <p className="solo-card__desc">
+              UX の 5 段階モデルに基づいてデザイン関連書籍を分類・紹介するサイト。
+              戦略・要件・構造・骨格・表層の各レイヤーごとに書籍を整理し、学習パスを可視化。
+            </p>
+            <div className="solo-card__tags">
+              {["Next.js", "TypeScript", "Tailwind CSS", "Vercel"].map((t) => (
+                <span className="ds-tag" key={t}>{t}</span>
+              ))}
+            </div>
+          </div>
+          <div className="solo-card__right">
+            <dl className="solo-card__dl">
+              <div>
+                <dt className="solo-card__dt">役割</dt>
+                <dd className="solo-card__dd">企画 · デザイン · 実装</dd>
+              </div>
+              <div>
+                <dt className="solo-card__dt">主な機能</dt>
+                <dd className="solo-card__dd">
+                  <div className="solo-card__features">
+                    <span className="solo-card__feature">UX 5 段階モデルによる書籍分類</span>
+                    <span className="solo-card__feature">レイヤーごとの学習パス可視化</span>
+                    <span className="solo-card__feature">デザイン関連書籍の紹介・案内</span>
+                  </div>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
