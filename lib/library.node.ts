@@ -84,6 +84,19 @@ const CalloutDef = defineComponent({
   component: null,
 });
 
+const LinkCardDef = defineComponent({
+  name: "LinkCard",
+  description:
+    "A link preview card with thumbnail image, title, description, and URL. Use when introducing an external site or personal work with a visual.",
+  props: z.object({
+    title: z.string().describe("Site or work title"),
+    description: z.string().describe("One-line description"),
+    url: z.string().url().describe("Full URL including https://"),
+    image: z.string().describe("Image path, e.g. '/ryunosukesawada-ogp.jpg'"),
+  }),
+  component: null,
+});
+
 const GridDef = defineComponent({
   name: "Grid",
   description: "Responsive grid. Put StatCards or ProjectCards inside. columns 2-3 recommended.",
@@ -107,6 +120,7 @@ const StackDef = defineComponent({
         TagListDef.ref,
         CalloutDef.ref,
         ProjectCardDef.ref,
+        LinkCardDef.ref,
       ])
     ),
   }),
@@ -124,5 +138,6 @@ export const portfolioLibraryNode = createLibrary({
     TimelineDef,
     TagListDef,
     CalloutDef,
+    LinkCardDef,
   ],
 });

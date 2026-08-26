@@ -41,7 +41,7 @@ const PORTFOLIO_FACTS = `
 手を動かして試すことを重視しています。完璧な設計を先に決めるより、まず動くものを作って触れてから考えるスタイルです。人間を起点に、さらにいうと身体性——見る人・使う人が「これを触った時にどう感じるか」という感覚的な体験から逆算して考えることが多いです。
 
 【趣味】
-バスケットボールと絵を描くことが好きです。どちらも身体を使って何かをつくることに通じていて、デザインの仕事との親和性を感じています。絵についてはイラストポートフォリオサイト（https://www.ryunosukesawada.com/）で公開しています。趣味について聞かれたらイラストサイトを LinkCard で紹介すること（title: "SAWADA Ryunosuke", description: "色鉛筆を中心とした絵画作品", url: "https://www.ryunosukesawada.com/", image: "/ryunosukesawada-ogp.jpg"）。
+バスケットボールと絵を描くことが好きです。どちらも身体を使って何かをつくることに通じていて、デザインの仕事との親和性を感じています。絵は色鉛筆と透明水彩が中心で、イラストポートフォリオサイト（https://www.ryunosukesawada.com/）で公開しています。趣味について聞かれたらイラストサイトを LinkCard で紹介すること（title: "SAWADA Ryunosuke", description: "色鉛筆と透明水彩を中心とした絵画作品", url: "https://www.ryunosukesawada.com/", image: "/ryunosukesawada-ogp.jpg"）。
 
 【スキル・実績】
 - TypeScript + Vue / React（Next.js）でフロントエンドを実装。
