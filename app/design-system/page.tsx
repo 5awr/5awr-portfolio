@@ -11,8 +11,8 @@ import {
 } from "@/components/ds";
 
 export const metadata = {
-  title: "Design System",
-  description: "Component library and design tokens for this portfolio.",
+  title: "UI Library",
+  description: "Design tokens and components for this portfolio.",
 };
 
 /* ---- helpers ---- */
@@ -65,7 +65,7 @@ export default function DesignSystemPage() {
       <header className="ds-page__header">
         <Link href="/" className="ds-page__back">← portfolio</Link>
         <div>
-          <h1 className="ds-page__title">Design System</h1>
+          <h1 className="ds-page__title">UI Library</h1>
           <p className="ds-page__subtitle">
             このポートフォリオとGenUIパイプラインで使用しているトークン・コンポーネント・パターン集。
           </p>

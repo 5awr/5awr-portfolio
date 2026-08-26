@@ -20,16 +20,6 @@ export function Hero() {
   return (
     <header className="hero">
       <span className="hero__eyebrow">// design engineer · design systems × ai implementation</span>
-      <h1 className="hero__title">
-        デザインシステムは、<br />
-        <em>AIによるUI生成</em>の基盤である。
-      </h1>
-      <p className="hero__lede">
-        私はデザインシステムを設計・運用し、その「契約」をAIに渡すことで、
-        フロントエンド実装までを自動化するフローを構築します。
-        このサイト自体が、その実証です。
-      </p>
-
       <div className="hero__chain">
         <div className="hero__node">
           <span className="hero__node-k">01</span>
@@ -120,7 +110,7 @@ const PROJECTS = [
     tags: ["Design System", "Tokens", "TypeScript", "Vue", "Storybook", "Figma", "Claude Code"],
     detail: {
       description: "既存プロダクトで使用されているバラバラな仕様のコンポーネントをグルーピング。必要なコンポーネントを取捨選択し、新しいコンポーネントをデザイン。TailwindCSSを導入し、色、サイズ、タイポグラフィー、スペーシングなどのプリミティブトークンおよびセマンティックトークンを定義。",
-      role: "デザインシステムに関わる全て（設計から実装まで）",
+      role: "コンポーネントライブラリの設計から実装まで",
       achievement: "実装の自動化基盤の構築",
     },
   },
@@ -360,7 +350,7 @@ export function DesignSystemLink() {
       <span className="block__eyebrow">// design system</span>
       <a href="/design-system" className="ds-link-card">
         <div className="ds-link-card__left">
-          <h2 className="ds-link-card__title">Design System</h2>
+          <h2 className="ds-link-card__title">UI Library</h2>
           <p className="ds-link-card__desc">トークン・コンポーネント一覧</p>
           <span className="ds-link-card__cta">View →</span>
         </div>

@@ -21,7 +21,6 @@ import { portfolioLibrary } from "@/lib/library";
 const SUGGESTIONS = [
   "どんなパーソナリティか？",
   "デザインへの考え方は？",
-  "デザインシステムへのこだわりは？",
   "趣味は？",
 ];
 
