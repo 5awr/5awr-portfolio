@@ -19,10 +19,10 @@ import { portfolioLibrary } from "@/lib/library";
    ============================================================ */
 
 const SUGGESTIONS = [
-  "あなたの強みを3つ教えて",
-  "どんな仕事を得意としていますか？",
-  "これまでの実績を見せて",
-  "スキルセットを可視化して",
+  "どんなパーソナリティか？",
+  "デザインへの考え方は？",
+  "デザインシステムへのこだわりは？",
+  "趣味は？",
 ];
 
 function GenUIDemoInner() {
@@ -115,7 +115,7 @@ export default function GenUIDemo() {
         const res = await fetch("/api/genui", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ messages: openAIMessageFormat.toApi(messages) }),
+          body: JSON.stringify({ messages: openAIMessageFormat.toApi(messages.slice(-1)) }),
           signal: abortController.signal,
         });
         if (res.status === 403 || res.status === 429) {

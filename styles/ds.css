@@ -126,6 +126,30 @@
     background: rgba(229, 112, 90, 0.07);
   }
 
+  /* ---- LinkCard ---- */
+  .ds-linkcard {
+    @apply flex items-center border border-line rounded-lg overflow-hidden bg-bg-elevated no-underline;
+    transition: border-color var(--duration-base) var(--ease-spring);
+  }
+  .ds-linkcard:hover { @apply border-accent; }
+  .ds-linkcard__img {
+    @apply shrink-0 object-cover;
+    width: 140px;
+    height: 88px;
+  }
+  .ds-linkcard__body {
+    @apply flex flex-col gap-1 px-5 py-4 min-w-0;
+  }
+  .ds-linkcard__title {
+    @apply font-display font-semibold text-ink text-sm leading-snug;
+  }
+  .ds-linkcard__desc {
+    @apply font-body text-ink-soft text-xs leading-snug;
+  }
+  .ds-linkcard__url {
+    @apply font-mono text-[0.68rem] text-accent mt-1;
+  }
+
   /* ---- Skeleton ---- */
   .ds-skeleton {
     @apply rounded-md min-h-14;

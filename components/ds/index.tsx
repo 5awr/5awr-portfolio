@@ -117,3 +117,16 @@ export type CalloutTone = "info" | "warn";
 export function Callout({ text, tone = "info" }: { text: string; tone?: CalloutTone }) {
   return <div className={`ds-callout ds-callout--${tone}`}>{text}</div>;
 }
+
+export function LinkCard({ title, description, url, image }: { title: string; description: string; url: string; image: string }) {
+  return (
+    <a className="ds-linkcard" href={url} target="_blank" rel="noreferrer">
+      <img className="ds-linkcard__img" src={image} alt={title} />
+      <div className="ds-linkcard__body">
+        <span className="ds-linkcard__title">{title}</span>
+        <span className="ds-linkcard__desc">{description}</span>
+        <span className="ds-linkcard__url">{url.replace(/^https?:\/\//, "")}</span>
+      </div>
+    </a>
+  );
+}
