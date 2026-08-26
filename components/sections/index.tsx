@@ -390,9 +390,6 @@ export function About() {
         <h2 className="block__title">5awr / SAWADA Ryunosuke</h2>
       </div>
       <div className="about__grid">
-        <p>
-          デザインとエンジニアリングの両輪でデザインシステムを設計・構築し、AIを活用したフロントエンド実装の自動化を推進しています。
-        </p>
         <div className="about__contact">
           <a href="https://github.com/5awr" className="about__link" target="_blank" rel="noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true" style={{ display: "inline", verticalAlign: "middle", marginRight: 6 }}>
