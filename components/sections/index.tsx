@@ -134,16 +134,6 @@ const PROJECTS = [
       achievement: "Vue2からVue3への段階的移行の足がかり",
     },
   },
-  {
-    title: "GenUI Pipeline",
-    description: "このサイト。LLMがOpenUI Langをストリームし、デザインシステムが描画する。",
-    tags: ["OpenUI", "Streaming", "TypeScript", "Next.js", "Gemini"],
-    detail: {
-      description: "このサイト自体。LLMがOpenUI Langをストリームし、デザインシステムのコンポーネントとしてリアルタイムに描画する。",
-      role: "設計・実装すべて",
-      achievement: "デザインシステム → AI実装のライブデモ",
-    },
-  },
 ];
 
 export function Work() {
