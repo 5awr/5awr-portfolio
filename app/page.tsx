@@ -1,11 +1,12 @@
 import GenUIDemo from "@/components/GenUIDemo";
-import { Work, PersonalProjects, TechStack, About, DesignSystemLink } from "@/components/sections";
+import { Work, PersonalProjects, TechStack, About, DesignSystemLink, Workflow } from "@/components/sections";
 
 export default function Page() {
   return (
     <main className="page">
       <div className="page__inner">
         <GenUIDemo />
+        <Workflow />
         <Work />
         <PersonalProjects />
         <TechStack />

@@ -87,23 +87,25 @@ export function Thesis() {
 }
 
 const WORKFLOW = [
-  { k: "STEP 01", t: "デザインシステムを構築", d: "トークン → プリミティブ → コンポーネント。Zodで型とpropsの契約を定義。" },
-  { k: "STEP 02", t: "プロンプトを自動生成", d: "library.prompt() がコンポーネント署名・構文規則・例を含むシステムプロンプトを出力。" },
-  { k: "STEP 03", t: "LLMがOpenUI Langを生成", d: "ユーザー入力に応じ、許可された部品だけで構造化UIをストリーム出力。" },
-  { k: "STEP 04", t: "Rendererが段階描画", d: "1行ずつパースし、未定義参照はスケルトンで先行表示。実装がひとりでに完成していく。" },
+  { k: "01", t: "デザインシステムを構築", d: "このサイトで使うコンポーネントをZodで型定義し、使ってよい部品の「契約」を作る。" },
+  { k: "02", t: "コンポーネント仕様をプロンプトに変換", d: "コンポーネントの定義から、AIへのシステムプロンプトを自動生成。デザインシステムの運用がAIの精度に直結する。" },
+  { k: "03", t: "LLMがUIをストリーム出力", d: "あなたの質問に応じ、許可された部品だけを使って構造化UIをリアルタイムに生成する。" },
+  { k: "04", t: "このページでリアルタイムに描画", d: "生成されたUIを上のデモエリアでそのまま表示。このページ自体がその動く実例。" },
 ];
 
 export function Workflow() {
   return (
     <section className="block" id="workflow">
-      <span className="block__eyebrow">// the automation flow</span>
-      <h2 className="block__title">設計から実装までを、AIで自動化する</h2>
+      <span className="block__eyebrow">// how this site works</span>
+      <h2 className="block__title">このサイトの仕組み</h2>
       <div className="flow">
         {WORKFLOW.map((s, i) => (
           <div className="flow__step" key={i}>
             <span className="flow__k">{s.k}</span>
-            <h3 className="flow__t">{s.t}</h3>
-            <p className="flow__d">{s.d}</p>
+            <div className="flow__body">
+              <h3 className="flow__t">{s.t}</h3>
+              <p className="flow__d">{s.d}</p>
+            </div>
           </div>
         ))}
       </div>

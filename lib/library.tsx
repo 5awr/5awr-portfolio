@@ -12,6 +12,7 @@ import {
   Timeline,
   TagList,
   Callout,
+  LinkCard,
 } from "@/components/ds";
 
 /* ============================================================
@@ -110,6 +111,21 @@ const CalloutDef = defineComponent({
   component: ({ props }) => <Callout text={props.text} tone={props.tone} />,
 });
 
+const LinkCardDef = defineComponent({
+  name: "LinkCard",
+  description:
+    "A link preview card with thumbnail image, title, description, and URL. Use when introducing an external site or personal work with a visual.",
+  props: z.object({
+    title: z.string().describe("Site or work title"),
+    description: z.string().describe("One-line description"),
+    url: z.string().url().describe("Full URL including https://"),
+    image: z.string().describe("Image path, e.g. '/ryunosukesawada-ogp.jpg'"),
+  }),
+  component: ({ props }) => (
+    <LinkCard title={props.title} description={props.description} url={props.url} image={props.image} />
+  ),
+});
+
 /* ---- Layout components (reference children via .ref) ---- */
 
 const GridDef = defineComponent({
@@ -144,6 +160,7 @@ const StackDef = defineComponent({
           TagListDef.ref,
           CalloutDef.ref,
           ProjectCardDef.ref,
+          LinkCardDef.ref,
         ])
       )
       .describe("Stacked sections of the response"),
@@ -170,5 +187,6 @@ export const portfolioLibrary = createLibrary({
     TimelineDef,
     TagListDef,
     CalloutDef,
+    LinkCardDef,
   ],
 });
